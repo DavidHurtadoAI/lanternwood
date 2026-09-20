@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import postcss from 'postcss';
 import * as yaml from 'js-yaml';
+import sharp from 'sharp';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = p => readFile(path.join(root, p));
@@ -13,6 +14,8 @@ const versions = JSON.parse(await read('versions.json'));
 assert.equal(manifest.version, pkg.version);
 assert.equal(versions[manifest.version], manifest.minAppVersion);
 const css = (await read('theme.css')).toString();
+// Project budget, not a claim about the directory's undocumented threshold.
+assert(Buffer.byteLength(css) < 1_000_000, 'Theme CSS exceeds the 1 MB project budget');
 const tree = postcss.parse(css);
 const settingsComments = [];
 tree.walkComments(c => { if (c.text.trimStart().startsWith('@settings')) settingsComments.push(c.text); });
@@ -26,10 +29,12 @@ const font = await read('assets/PixelifySans.ttf');
 assert.equal(font.readUInt32BE(0), 0x00010000, 'Valid TrueType font');
 assert(css.includes(font.toString('base64')), 'Font is embedded');
 let dimensions;
-for (const file of ['forest.png', 'forest-day.png', 'forest-classic.png', 'forest-classic-day.png']) {
+for (const file of ['forest.webp', 'forest-day.webp', 'forest-classic.webp', 'forest-classic-day.webp']) {
   const image = await read(`assets/${file}`);
-  assert.equal(image.subarray(1, 4).toString(), 'PNG');
-  const size = [image.readUInt32BE(16), image.readUInt32BE(20)];
+  const metadata = await sharp(image).metadata();
+  assert.equal(metadata.format, 'webp');
+  const size = [metadata.width, metadata.height];
+  assert.deepEqual(size, [2172, 724], 'Original landscape dimensions preserved');
   if (dimensions) assert.deepEqual(size, dimensions, 'Day/night dimensions match');
   dimensions = size;
   assert(css.includes(image.toString('base64')), `${file} is embedded`);

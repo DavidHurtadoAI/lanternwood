@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.2 — 2026-09-20
+
+- Reduce theme.css from 10.45 MB to approximately 0.96 MB to address the directory size warning.
+- Embed WebP scenery at the original resolution; retain all source PNGs and all four landscapes.
+- Compact pixel SVG geometry without changing its occupied cells.
+- Add reproducible asset optimization and a strict 1 MB project CSS budget.
+- Preserve offline use and all ten configuration controls.
+
 ## 0.2.1 — 2026-09-20
 
 - Translate every Style Settings heading, option, description and landscape choice into English.

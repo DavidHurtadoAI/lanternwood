@@ -5,7 +5,7 @@
 A highly customizable pixel-art Obsidian theme with **10 configuration options**
 for landscapes, typography, reading width and icons through Style Settings.
 Warm lanterns, forest greens and stepped details create a quiet place to write.
-Version **0.2.1**. Original theme by David Hurtado.
+Version **0.2.2**. Original theme by David Hurtado.
 
 Inspired by the atmosphere of **Kingdom Two Crowns**, with original scenery and
 no extracted game assets. Choose a simple pixel interface, a chunky classic
@@ -40,7 +40,7 @@ paragraphs keep your reading font and the forest is off.
 
 ## Install
 
-1. Download [Lanternwood-0.2.1.zip](https://github.com/DavidHurtadoAI/lanternwood/releases/download/0.2.1/Lanternwood-0.2.1.zip) from the release. Extract and copy its `Lanternwood` folder into your vault's
+1. Download [Lanternwood-0.2.2.zip](https://github.com/DavidHurtadoAI/lanternwood/releases/download/0.2.2/Lanternwood-0.2.2.zip) from the release. Extract and copy its `Lanternwood` folder into your vault's
    `.obsidian/themes/` directory. It contains `manifest.json` and `theme.css`.
 2. Select **Lanternwood** under **Settings → Appearance → Themes**.
 3. Install and enable **Style Settings** if you want to customize the theme.
@@ -54,7 +54,9 @@ To update, replace those two files with the files from the newer release.
 The forest is off by default in a fresh install. The pixel theme works without
 Style Settings. Font, original glyphs and all four landscapes are embedded in CSS:
 no external asset folders, internet connection, font installation or API key
-are needed at runtime. The complete CSS is about 10 MiB.
+are needed at runtime. The complete CSS is about 0.96 MB (938 KiB). The four landscapes use compressed
+WebP at their original 2172×724 dimensions; the original PNGs remain in the repository.
+WebP compression is lossy. The build is checked against a 1 MB project budget.
 
 ## Day and night
 
@@ -183,8 +185,12 @@ npm run lint
 npm run check
 ```
 
+`npm run optimize:assets` regenerates the bundled WebP images from the original
+PNGs using Sharp (quality 75, no resizing). The generated WebP files are committed,
+so ordinary builds do not need to recompress them.
+
 `src/theme.css` is the editable CSS. `scripts/build.mjs` embeds the font,
-day/night PNGs, font license and original 16×16 SVG glyphs into `theme.css`.
+day/night WebP images, font license and original 16×16 SVG glyphs into `theme.css`.
 `npm run install:dev` is a local maintainer helper: it assumes the repository
 is at `<vault>/Development/lanternwood` and installs two levels above the
 repository. Do not use that helper from an arbitrary clone location. `scripts/check.mjs` checks CSS, YAML settings, version synchronization,

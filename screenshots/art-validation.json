@@ -2,8 +2,8 @@
   {
     "style": "classic",
     "mode": "dark",
-    "asset": "forest-classic.png",
-    "length": 1701985,
+    "asset": "forest-classic.webp",
+    "length": 78158,
     "padding": "0px",
     "z": "-1",
     "opacity": "0.4",
@@ -12,8 +12,8 @@
   {
     "style": "classic",
     "mode": "light",
-    "asset": "forest-classic-day.png",
-    "length": 1963025,
+    "asset": "forest-classic-day.webp",
+    "length": 123446,
     "padding": "0px",
     "z": "-1",
     "opacity": "0.4",
@@ -22,8 +22,8 @@
   {
     "style": "detailed",
     "mode": "dark",
-    "asset": "forest.png",
-    "length": 3003373,
+    "asset": "forest.webp",
+    "length": 229978,
     "padding": "0px",
     "z": "-1",
     "opacity": "0.4",
@@ -32,8 +32,8 @@
   {
     "style": "detailed",
     "mode": "light",
-    "asset": "forest-day.png",
-    "length": 3584829,
+    "asset": "forest-day.webp",
+    "length": 384190,
     "padding": "0px",
     "z": "-1",
     "opacity": "0.4",

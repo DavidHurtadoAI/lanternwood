@@ -1,4 +1,14 @@
-# Validation — Lanternwood 0.2.1
+# Validation — Lanternwood 0.2.2
+
+## 0.2.2 verification
+
+- CSS size reduced by approximately 91%, from 10.45 MB to 0.96 MB.
+- Build, Stylelint and packaging checks pass, including the new 1,000,000-byte project budget.
+- This budget is our own guardrail; the directory validator did not disclose its numeric threshold.
+- All four compressed WebP images retain 2172×724 dimensions; source PNGs are unchanged.
+- Actual Obsidian selector exercised for classic/detailed × light/dark; all four WebP images decode successfully.
+- Correct backgrounds, zero reserved layout space, opacity and error-free Style Settings verified; preferences restored.
+- Remote Community directory validation must be rerun after this release; local checks do not establish approval.
 
 ## 0.2.1 verification
 
