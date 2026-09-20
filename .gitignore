@@ -1,0 +1,7 @@
+node_modules/
+*.zip
+.local/
+screenshots/*.png
+!screenshots/classic-comparison.png
+!screenshots/plain-comparison.png
+!screenshots/detailed-comparison.png

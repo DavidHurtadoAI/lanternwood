@@ -1,0 +1,794 @@
+/* Lanternwood — original theme by David Hurtado, MIT.
+   Source file. Run npm run build to embed the offline font, icons and artwork.
+   Pixelify Sans is licensed under the SIL Open Font License 1.1.
+*/
+
+/* @settings
+name: Lanternwood
+id: lanternwood
+settings:
+  - id: lw-landscape
+    title: Bosque
+    type: heading
+    level: 1
+    collapsed: false
+  - id: lw-forest
+    title: Activar el bosque
+    description: Un paisaje original de pixel art detrás de las notas, sin restar espacio al editor. También disponible en la paleta de comandos.
+    type: class-toggle
+    default: false
+    addCommand: true
+  - id: lw-art-style
+    title: Estilo del paisaje
+    description: Pixel clásico usa formas sencillas y píxeles grandes. Detallado conserva la ilustración original. Ambos cambian entre día y noche.
+    type: class-select
+    allowEmpty: false
+    default: lw-art-classic
+    options:
+      - label: Pixel clásico — menos detalle
+        value: lw-art-classic
+      - label: Detallado — más detalle
+        value: lw-art-detailed
+  - id: lw-forest-height
+    title: Altura del fondo
+    description: Cuánto asciende el paisaje desde el borde inferior. El degradado lo funde con el fondo y no ocupa espacio de lectura.
+    type: variable-number-slider
+    default: 360
+    min: 100
+    max: 600
+    step: 10
+    format: px
+  - id: lw-forest-opacity
+    title: Opacidad del bosque
+    description: Menos opacidad para concentrarte en el texto; más para disfrutar del paisaje.
+    type: variable-number-slider
+    default: 0.4
+    min: 0.1
+    max: 0.8
+    step: 0.05
+  - id: lw-forest-brightness
+    title: Luminosidad del bosque
+    type: variable-number-slider
+    default: 1
+    min: 0.5
+    max: 1.2
+    step: 0.05
+  - id: lw-type
+    title: Tipografía y lectura
+    type: heading
+    level: 1
+    collapsed: false
+  - id: lw-plain-headings
+    title: Títulos con tu fuente de lectura
+    description: Sustituye la fuente pixelada de los títulos. Los párrafos siempre respetan la fuente configurada en Obsidian.
+    type: class-toggle
+    default: false
+  - id: lw-plain-navigation
+    title: Navegación con tu fuente habitual
+    description: Sustituye Pixelify Sans en el explorador, el esquema y los controles.
+    type: class-toggle
+    default: false
+  - id: lw-pixel-text
+    title: Pixelar también el texto de las notas
+    description: Máxima estética de videojuego. Desactivado, los párrafos respetan tu fuente de lectura.
+    type: class-toggle
+    default: false
+  - id: lw-readable-width
+    title: Ancho de lectura
+    type: variable-number-slider
+    default: 760
+    min: 520
+    max: 1000
+    step: 20
+    format: px
+  - id: lw-native-icons
+    title: Usar los iconos originales de Obsidian
+    description: Desactiva los iconos pixelados del tema.
+    type: class-toggle
+    default: false
+*/
+
+body {
+  --lw-pixel-font: "Lanternwood Pixel", monospace;
+  --lw-heading-font: var(--lw-pixel-font);
+  --lw-forest-height: 360px;
+  --lw-forest-opacity: 0.4;
+  --lw-forest-brightness: 1;
+  --lw-readable-width: 760px;
+  --font-text-theme: "Segoe UI", system-ui, sans-serif;
+  --font-interface-theme: var(--lw-pixel-font);
+  --font-monospace-theme: "Cascadia Code", consolas, monospace;
+  --font-ui-small: 13px;
+  --font-ui-medium: 14px;
+  --font-ui-smaller: 12px;
+  --file-line-width: var(--lw-readable-width);
+  --line-height-normal: 1.7;
+  --h1-font: var(--lw-heading-font);
+  --h2-font: var(--lw-heading-font);
+  --h3-font: var(--lw-heading-font);
+  --h4-font: var(--lw-heading-font);
+  --h5-font: var(--lw-heading-font);
+  --h6-font: var(--lw-heading-font);
+  --h1-size: 2.3em;
+  --h2-size: 1.65em;
+  --h3-size: 1.35em;
+  --h4-size: 1.15em;
+  --h5-size: 1.05em;
+  --h6-size: 1em;
+  --h1-weight: 600;
+  --h2-weight: 600;
+  --h3-weight: 500;
+  --h1-line-height: 1.2;
+  --h2-line-height: 1.3;
+  --inline-title-font: var(--lw-heading-font);
+  --inline-title-size: 2.4em;
+  --inline-title-weight: 600;
+  --inline-title-line-height: 1.2;
+  --heading-spacing: 1.65em;
+  --radius-s: 0;
+  --radius-m: 0;
+  --radius-l: 0;
+  --radius-xl: 0;
+  --input-radius: 0;
+  --button-radius: 0;
+  --tab-radius: 0;
+  --tab-curve: 0;
+  --tab-outline-width: 0;
+  --tab-font-size: 17px;
+  --tab-font-weight: 500;
+  --tab-container-background: var(--background-secondary);
+  --checkbox-radius: 0;
+  --checkbox-size: 17px;
+  --checkbox-marker-color: var(--background-primary);
+  --toggle-radius: 0;
+  --toggle-thumb-radius: 0;
+  --slider-thumb-radius: 0;
+  --slider-thumb-width: 13px;
+  --slider-thumb-height: 19px;
+  --slider-track-height: 4px;
+  --icon-stroke: 1.75px;
+  --scrollbar-width: 10px;
+  --tag-radius: 0;
+  --tag-border-width: 1px;
+  --tag-padding-x: 0.5em;
+  --tag-padding-y: 0.16em;
+  --tag-size: 0.85em;
+  --callout-radius: 0;
+  --callout-border-width: 1px;
+  --callout-border-opacity: 0.65;
+  --callout-title-weight: 600;
+  --callout-padding: 16px 20px;
+  --code-radius: 0;
+  --code-size: 0.87em;
+  --blockquote-border-thickness: 3px;
+  --nav-item-padding: 6px 10px;
+  --nav-item-radius: 0;
+  --nav-item-weight-active: 600;
+  --nav-indentation-guide-width: 1px;
+  --nav-indentation-guide-color: var(--background-modifier-border);
+  --status-bar-radius: 0;
+  --status-bar-border-width: 1px 0 0;
+  --status-bar-font-size: 12px;
+  --divider-width: 1px;
+  --divider-width-hover: 3px;
+  --divider-color: var(--background-modifier-border);
+  --divider-color-hover: var(--lw-gold);
+}
+
+.theme-dark {
+  color-scheme: dark;
+
+  --lw-gold: #e9b96e;
+  --lw-sage: #acc49a;
+  --lw-edge: #36515b;
+  --lw-shadow: #061117;
+  --lw-panel: #132731;
+  --color-base-00: #101d27;
+  --color-base-05: #12212b;
+  --color-base-10: #142731;
+  --color-base-20: #1a303a;
+  --color-base-25: #243f48;
+  --color-base-30: #304c56;
+  --color-base-35: #42606a;
+  --color-base-40: #617e85;
+  --color-base-50: #8aa3a7;
+  --color-base-60: #afbfbd;
+  --color-base-70: #ced6cf;
+  --color-base-100: #e9e8db;
+  --background-primary: #101d27;
+  --background-primary-alt: #12232d;
+  --background-secondary: #0c1922;
+  --background-secondary-alt: #0a151e;
+  --background-modifier-border: #2b444e;
+  --background-modifier-border-hover: #58757a;
+  --background-modifier-border-focus: #e9b96e;
+  --background-modifier-hover: #acc49a12;
+  --background-modifier-active-hover: #acc49a20;
+  --background-modifier-form-field: #0c1922;
+  --background-modifier-box-shadow: #030b1080;
+  --background-modifier-cover: #030b10b3;
+  --text-normal: #e9e8db;
+  --text-muted: #adbfbe;
+  --text-faint: #859d9f;
+  --text-on-accent: #16222a;
+  --text-accent: #acc49a;
+  --text-accent-hover: #d0dfbb;
+  --text-selection: #a5b99038;
+  --text-highlight-bg: #e9b96e30;
+  --interactive-normal: #1a303a;
+  --interactive-hover: #243f48;
+  --interactive-accent: #e9b96e;
+  --interactive-accent-hover: #f2cc8d;
+  --color-accent: #e9b96e;
+  --color-accent-1: #f2cc8d;
+  --color-accent-2: #d8a55a;
+  --color-red: #e4958c;
+  --color-orange: #e6ad75;
+  --color-yellow: #e9cb85;
+  --color-green: #acc49a;
+  --color-cyan: #88bec0;
+  --color-blue: #91b9d0;
+  --color-purple: #b9a7cd;
+  --color-pink: #d7a2b1;
+  --link-color: #acc49a;
+  --link-color-hover: #d0dfbb;
+  --link-external-color: #a3c8d0;
+  --link-unresolved-color: #c6b994;
+  --h1-color: #f0e5cd;
+  --h2-color: #e9b96e;
+  --h3-color: #acc49a;
+  --h4-color: #b7cccb;
+  --h5-color: #b7cccb;
+  --h6-color: #adbfbe;
+  --inline-title-color: #f0e5cd;
+  --bold-color: #f0d5a3;
+  --italic-color: #bccdab;
+  --code-background: #0b1821;
+  --code-normal: #ccd8cb;
+  --blockquote-border-color: #8da981;
+  --blockquote-color: #bacab7;
+  --nav-item-color: #adbfbe;
+  --nav-item-color-hover: #eee9d7;
+  --nav-item-color-active: #e9ce98;
+  --nav-item-color-selected: #e9ce98;
+  --nav-item-background-active: #24352f;
+  --nav-item-background-selected: #24352f;
+  --nav-collapse-icon-color: #859d9f;
+  --tab-text-color: #adbfbe;
+  --tab-text-color-active: #f0e5cd;
+  --tab-text-color-focused-active: #f0e5cd;
+  --tab-text-color-focused-active-current: #f0e5cd;
+  --tab-background-active: #182c35;
+  --titlebar-background: #0a151e;
+  --titlebar-background-focused: #0c1922;
+  --titlebar-text-color-focused: #e9e8db;
+  --tag-color: #bed1ab;
+  --tag-color-hover: #e2e9ce;
+  --tag-background: #20362e;
+  --tag-background-hover: #2d483b;
+  --tag-border-color: #3c5545;
+  --tag-border-color-hover: #8da981;
+  --graph-line: #3a555c;
+  --graph-node: #acc49a;
+  --graph-node-focused: #e9b96e;
+  --graph-node-tag: #88bec0;
+  --graph-node-attachment: #b9a7cd;
+  --graph-node-unresolved: #748d91;
+  --canvas-background: #101d27;
+}
+
+.theme-light {
+  color-scheme: light;
+
+  --lw-gold: #80551e;
+  --lw-sage: #426143;
+  --lw-edge: #8d9e8c;
+  --lw-shadow: #bac5b4;
+  --lw-panel: #e4e9db;
+  --color-base-00: #f4f1e5;
+  --color-base-05: #eeeede;
+  --color-base-10: #e4e9db;
+  --color-base-20: #dce3d3;
+  --color-base-25: #ced8c8;
+  --color-base-30: #b6c4b2;
+  --color-base-35: #9caa99;
+  --color-base-40: #81937f;
+  --color-base-50: #63755f;
+  --color-base-60: #566951;
+  --color-base-70: #405340;
+  --color-base-100: #23372f;
+  --background-primary: #f4f1e5;
+  --background-primary-alt: #eeeede;
+  --background-secondary: #e4e9db;
+  --background-secondary-alt: #dce3d3;
+  --background-modifier-border: #b6c4b2;
+  --background-modifier-border-hover: #81937f;
+  --background-modifier-border-focus: #80551e;
+  --background-modifier-hover: #42614312;
+  --background-modifier-active-hover: #42614320;
+  --background-modifier-form-field: #f9f6ed;
+  --background-modifier-box-shadow: #23372f25;
+  --background-modifier-cover: #23372f66;
+  --text-normal: #23372f;
+  --text-muted: #536650;
+  --text-faint: #677561;
+  --text-on-accent: #fff8e8;
+  --text-accent: #426143;
+  --text-accent-hover: #263f2d;
+  --text-selection: #6f926b38;
+  --text-highlight-bg: #e9b96e65;
+  --interactive-normal: #e0e7d5;
+  --interactive-hover: #d0ddc5;
+  --interactive-accent: #80551e;
+  --interactive-accent-hover: #684317;
+  --color-accent: #80551e;
+  --color-accent-1: #956724;
+  --color-accent-2: #684317;
+  --color-red: #a64540;
+  --color-orange: #955726;
+  --color-yellow: #80631e;
+  --color-green: #426143;
+  --color-cyan: #306966;
+  --color-blue: #385e7b;
+  --color-purple: #775287;
+  --color-pink: #914b68;
+  --link-color: #426143;
+  --link-color-hover: #263f2d;
+  --link-external-color: #385e7b;
+  --link-unresolved-color: #80631e;
+  --h1-color: #293c30;
+  --h2-color: #80551e;
+  --h3-color: #426143;
+  --h4-color: #385b53;
+  --h5-color: #385b53;
+  --h6-color: #536650;
+  --inline-title-color: #293c30;
+  --bold-color: #694d24;
+  --italic-color: #426143;
+  --code-background: #e7e9dc;
+  --code-normal: #304a3e;
+  --blockquote-border-color: #668361;
+  --blockquote-color: #4f6749;
+  --nav-item-color: #536650;
+  --nav-item-color-hover: #23372f;
+  --nav-item-color-active: #293c30;
+  --nav-item-color-selected: #293c30;
+  --nav-item-background-active: #cfddc3;
+  --nav-item-background-selected: #cfddc3;
+  --nav-collapse-icon-color: #63755f;
+  --tab-text-color: #536650;
+  --tab-text-color-active: #293c30;
+  --tab-text-color-focused-active: #293c30;
+  --tab-text-color-focused-active-current: #293c30;
+  --tab-background-active: #f4f1e5;
+  --titlebar-background: #dce3d3;
+  --titlebar-background-focused: #e4e9db;
+  --titlebar-text-color-focused: #293c30;
+  --tag-color: #426143;
+  --tag-color-hover: #263f2d;
+  --tag-background: #e0e7d5;
+  --tag-background-hover: #d0ddc5;
+  --tag-border-color: #adbea3;
+  --tag-border-color-hover: #668361;
+  --graph-line: #a1b199;
+  --graph-node: #426143;
+  --graph-node-focused: #80551e;
+  --graph-node-tag: #306966;
+  --graph-node-attachment: #775287;
+  --graph-node-unresolved: #81937f;
+  --canvas-background: #f4f1e5;
+}
+
+/* Native layout remains native: no DOM injection, no fixed editor heights. */
+.workspace {
+  background: var(--background-secondary);
+}
+
+.workspace-ribbon {
+  border-right: 2px solid var(--lw-edge);
+  background: var(--background-secondary);
+}
+
+.side-dock-ribbon-action {
+  margin-block: 4px;
+}
+
+.workspace-tab-header-container {
+  border-bottom: 2px solid var(--lw-edge);
+}
+
+.workspace-tab-header {
+  margin-top: 5px;
+  border: 2px solid transparent;
+  border-bottom: 0;
+  border-radius: 0;
+}
+
+.workspace-tab-header.is-active {
+  border-color: var(--lw-edge);
+  box-shadow: inset 0 3px var(--lw-gold);
+}
+
+.workspace-tab-header-inner-title,
+.workspace-tab-header .view-header-title,
+.titlebar-text,
+.status-bar-item {
+  font-family: var(--lw-pixel-font);
+}
+
+.workspace-tab-header-inner::after {
+  display: none;
+}
+
+.workspace-leaf-content {
+  background: var(--background-primary);
+}
+
+.workspace-split.mod-left-split .workspace-leaf-content,
+.workspace-split.mod-right-split .workspace-leaf-content {
+  background: var(--background-secondary);
+}
+
+.view-header {
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.nav-folder-title {
+  color: var(--lw-sage);
+  font-weight: 600;
+}
+
+.nav-file-title.is-active {
+  box-shadow: inset 2px 0 var(--lw-gold);
+}
+
+.nav-folder-collapse-indicator {
+  color: var(--lw-sage);
+}
+
+.tree-item-self.is-active {
+  box-shadow: inset 2px 0 var(--lw-gold);
+}
+
+.lw-pixel-text .markdown-source-view,
+.lw-pixel-text .markdown-preview-view {
+  --font-text: var(--lw-pixel-font);
+
+  font-family: var(--lw-pixel-font);
+  font-size: 19px;
+}
+
+.lw-plain-headings {
+  --lw-heading-font: var(--font-text);
+}
+
+.lw-plain-navigation {
+  --font-interface-theme: "Segoe UI", system-ui, sans-serif;
+}
+
+.inline-title {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.markdown-rendered h1,
+.markdown-rendered h2,
+.cm-header-1,
+.cm-header-2 {
+  letter-spacing: 0.015em;
+}
+
+.markdown-rendered h2 {
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.markdown-rendered a.internal-link {
+  text-underline-offset: 3px;
+}
+
+.markdown-rendered hr,
+.cm-line hr {
+  height: 3px;
+  border: 0;
+  background: repeating-linear-gradient(90deg, var(--lw-edge) 0 4px, transparent 4px 8px);
+}
+
+/* Cut-corner frames use gradients rather than clipping content/focus rings. */
+.callout {
+  position: relative;
+  overflow: visible;
+  border: 0;
+  background-image:
+    linear-gradient(var(--background-modifier-border), var(--background-modifier-border)),
+    linear-gradient(var(--background-modifier-border), var(--background-modifier-border)),
+    linear-gradient(var(--background-modifier-border), var(--background-modifier-border)),
+    linear-gradient(var(--background-modifier-border), var(--background-modifier-border));
+  background-position: center top, center bottom, left center, right center;
+  background-size: calc(100% - 8px) 1px, calc(100% - 8px) 1px, 1px calc(100% - 8px), 1px calc(100% - 8px);
+  background-repeat: no-repeat;
+}
+
+.callout::before,
+.callout::after {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border: solid var(--background-modifier-border);
+  pointer-events: none;
+  content: "";
+}
+
+.callout::before {
+  top: 1px;
+  left: 1px;
+  border-width: 0 0 1px 1px;
+}
+
+.callout::after {
+  right: 1px;
+  bottom: 1px;
+  border-width: 1px 1px 0 0;
+}
+
+.callout-title-inner {
+  font-family: var(--lw-heading-font);
+  font-size: 1.2em;
+  letter-spacing: 0.02em;
+}
+
+.callout[data-callout="lantern"],
+.callout[data-callout="remember"] {
+  --callout-color: 233, 185, 110;
+  --callout-icon: lucide-lamp;
+
+  color: var(--text-normal);
+}
+
+.theme-light .callout[data-callout="lantern"],
+.theme-light .callout[data-callout="remember"] {
+  --callout-color: 128, 85, 30;
+}
+
+.callout[data-callout="forest"] {
+  --callout-color: 141, 169, 129;
+  --callout-icon: lucide-trees;
+}
+
+.theme-light .callout[data-callout="forest"] {
+  --callout-color: 66, 97, 67;
+}
+
+.markdown-rendered blockquote {
+  padding: 8px 18px;
+  background: var(--background-primary-alt);
+}
+
+.markdown-rendered pre {
+  border: 1px solid var(--background-modifier-border);
+  box-shadow: 3px 3px 0 var(--lw-shadow);
+}
+
+.markdown-rendered table {
+  border: 1px solid var(--background-modifier-border);
+}
+
+.markdown-rendered th {
+  background: var(--lw-panel);
+  color: var(--lw-sage);
+}
+
+.markdown-rendered tbody tr:nth-child(even) {
+  background: var(--background-primary-alt);
+}
+
+input[type="checkbox"] {
+  border: 1px solid var(--text-muted);
+  box-shadow: 1px 1px 0 var(--lw-shadow);
+}
+
+input[type="checkbox"]:checked {
+  border-color: var(--lw-sage);
+  background-color: var(--lw-sage);
+}
+
+input[type="checkbox"]:checked::after {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 7h3v3h2V7h3V4h3v4h-3v3H8v3H5v-3H2z'/%3E%3C/svg%3E");
+}
+
+/* Controls stay large enough for pointer and keyboard use. */
+button,
+.dropdown {
+  border: 2px solid var(--lw-edge);
+  box-shadow: 2px 2px 0 var(--lw-shadow);
+}
+
+button:hover,
+.dropdown:hover {
+  border-color: var(--lw-gold);
+}
+
+button:active {
+  box-shadow: 1px 1px 0 var(--lw-shadow);
+}
+
+button.mod-cta {
+  border-color: var(--lw-gold);
+}
+
+input[type="text"],
+input[type="search"],
+input[type="password"],
+input[type="number"],
+textarea {
+  border: 1px solid var(--background-modifier-border);
+  box-shadow: inset 2px 2px 0 var(--lw-shadow);
+}
+
+button:focus-visible,
+.clickable-icon:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--lw-gold);
+  outline-offset: 3px;
+}
+
+.checkbox-container {
+  border: 1px solid var(--lw-edge);
+  box-shadow: inset 1px 1px 0 var(--lw-shadow);
+}
+
+.checkbox-container::after {
+  box-shadow: 1px 1px 0 var(--lw-shadow);
+}
+
+.modal,
+.menu,
+.suggestion-container,
+.popover {
+  border: 1px solid var(--lw-edge);
+  box-shadow: 4px 4px 0 var(--lw-shadow);
+}
+
+.modal-title,
+.vertical-tab-header-group-title {
+  font-family: var(--lw-pixel-font);
+  color: var(--lw-gold);
+}
+
+.vertical-tab-nav-item.is-active {
+  box-shadow: inset 2px 0 var(--lw-gold);
+}
+
+.metadata-container {
+  border-bottom: 1px solid var(--background-modifier-border);
+  padding-bottom: 16px;
+}
+
+.metadata-container,
+.metadata-container input,
+.metadata-container .metadata-property-value,
+.metadata-container .multi-select-pill-content,
+.metadata-container .metadata-properties-title,
+.metadata-container .metadata-add-button {
+  font-family: var(--lw-pixel-font);
+}
+
+.metadata-container .metadata-property-key-input {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.status-bar {
+  color: var(--text-muted);
+  background: var(--background-secondary);
+}
+
+body:not(.lw-plain-navigation) .nav-files-container,
+body:not(.lw-plain-navigation) .workspace-leaf-content[data-type="outline"] .tree-item-self,
+body:not(.lw-plain-navigation) .view-header-title,
+body:not(.lw-plain-navigation) .setting-item-name,
+body:not(.lw-plain-navigation) .vertical-tab-nav-item,
+body:not(.lw-plain-navigation) button,
+body:not(.lw-plain-navigation) .dropdown {
+  font-family: var(--lw-pixel-font);
+  font-size: 17px;
+}
+
+body:not(.is-mobile) ::-webkit-scrollbar-thumb {
+  border: 3px solid var(--background-primary);
+  border-radius: 0;
+  background-color: var(--lw-edge);
+}
+
+body:not(.is-mobile) ::-webkit-scrollbar-thumb:hover {
+  background-color: var(--lw-sage);
+}
+
+/* The landscape is an isolated negative-z backdrop, never a layout element.
+   Transparent workspace surfaces reveal it under the notes. Menus, toolbars,
+   code blocks and callouts keep their own surfaces for readability. */
+body.lw-forest .workspace {
+  --lw-scene-height: min(var(--lw-forest-height), 75vh);
+
+  position: relative;
+  isolation: isolate;
+  background: var(--background-primary);
+}
+
+body.lw-forest .workspace-split,
+body.lw-forest .workspace-tab-container,
+body.lw-forest .workspace .workspace-leaf,
+body.lw-forest .workspace .workspace-leaf-content,
+body.lw-forest .workspace .view-content,
+body.lw-forest .workspace-split.mod-left-split .workspace-leaf-content,
+body.lw-forest .workspace-split.mod-right-split .workspace-leaf-content,
+body.lw-forest .workspace-ribbon,
+body.lw-forest .markdown-source-view,
+body.lw-forest .markdown-preview-view {
+  background: transparent;
+}
+
+body.lw-forest .workspace::after {
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: var(--lw-scene-height);
+  background-position: center 55%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  filter: brightness(var(--lw-forest-brightness));
+  opacity: var(--lw-forest-opacity);
+  mask-image: linear-gradient(to bottom, transparent, #000 45%);
+  pointer-events: none;
+  content: "";
+}
+
+@media (width <= 800px) {
+  body {
+    --h1-size: 1.9em;
+    --h2-size: 1.45em;
+    --inline-title-size: 2em;
+  }
+
+  body.lw-forest .workspace {
+    --lw-scene-height: min(var(--lw-forest-height), 65vh);
+  }
+
+  body.lw-forest .workspace::after {
+    background-size: cover;
+    background-position: center 70%;
+  }
+
+  /* Keep the editor usable when both desktop sidebars are open. Mobile
+     sidebars use Obsidian's native overlay layout and are not constrained. */
+  body:not(.is-mobile) .workspace-split.mod-left-split,
+  body:not(.is-mobile) .workspace-split.mod-right-split {
+    max-width: 22vw;
+  }
+}
+
+body.is-mobile.lw-forest .workspace {
+  --lw-scene-height: min(var(--lw-forest-height), 60vh);
+}
+
+body.is-mobile .callout {
+  padding: 12px 14px;
+}
+
+@media print {
+  body.lw-forest .workspace::after {
+    display: none;
+  }
+
+  .markdown-rendered {
+    color: #000;
+    background: #fff;
+  }
+}

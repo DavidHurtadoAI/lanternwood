@@ -1,0 +1,17 @@
+{
+  "name": "lanternwood-theme",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "install:dev": "node scripts/install.mjs",
+    "check": "node scripts/check.mjs",
+    "lint": "stylelint src/theme.css theme.css --max-warnings 0"
+  },
+  "devDependencies": {
+    "js-yaml": "^5.4.2",
+    "postcss": "^8.5.28",
+    "stylelint": "^17.0.0",
+    "stylelint-config-obsidianmd": "latest"
+  }
+}

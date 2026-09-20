@@ -1,0 +1,42 @@
+[
+  {
+    "style": "classic",
+    "mode": "dark",
+    "asset": "forest-classic.png",
+    "length": 1701985,
+    "padding": "0px",
+    "z": "-1",
+    "opacity": "0.4",
+    "errors": []
+  },
+  {
+    "style": "classic",
+    "mode": "light",
+    "asset": "forest-classic-day.png",
+    "length": 1963025,
+    "padding": "0px",
+    "z": "-1",
+    "opacity": "0.4",
+    "errors": []
+  },
+  {
+    "style": "detailed",
+    "mode": "dark",
+    "asset": "forest.png",
+    "length": 3003373,
+    "padding": "0px",
+    "z": "-1",
+    "opacity": "0.4",
+    "errors": []
+  },
+  {
+    "style": "detailed",
+    "mode": "light",
+    "asset": "forest-day.png",
+    "length": 3584829,
+    "padding": "0px",
+    "z": "-1",
+    "opacity": "0.4",
+    "errors": []
+  }
+]
