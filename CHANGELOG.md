@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1 — 2026-09-20
+
+- Translate every Style Settings heading, option, description and landscape choice into English.
+- Update the README and UI verification scripts to match the English labels.
+- Preserve setting IDs, values and defaults so existing preferences remain intact.
+
 ## 0.2.0 — 2026-09-20
 
 - First public GitHub release, including installable ZIP, manifest and theme CSS.

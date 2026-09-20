@@ -10,4 +10,4 @@ const target = path.join(vault, '.obsidian/themes', manifest.name);
 await mkdir(target, { recursive: true });
 for (const file of ['manifest.json', 'theme.css']) await copyFile(path.join(root, file), path.join(target, file));
 console.log(`Installed in development vault: ${target}`);
-console.log('Choose Lanternwood in Appearance, then Style Settings → Lanternwood → Activar el bosque.');
+console.log('Choose Lanternwood in Appearance, then Style Settings → Lanternwood → Enable forest.');

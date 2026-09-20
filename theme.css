@@ -1,4 +1,4 @@
-/* Lanternwood 0.2.0 | David Hurtado | MIT
+/* Lanternwood 0.2.1 | David Hurtado | MIT
  * Generated from src/theme.css — npm run build. No network dependencies.
  */
 
@@ -117,30 +117,30 @@ name: Lanternwood
 id: lanternwood
 settings:
   - id: lw-landscape
-    title: Bosque
+    title: Forest
     type: heading
     level: 1
     collapsed: false
   - id: lw-forest
-    title: Activar el bosque
-    description: Un paisaje original de pixel art detrás de las notas, sin restar espacio al editor. También disponible en la paleta de comandos.
+    title: Enable forest
+    description: Original pixel scenery behind your notes, without reducing editor space. Also available in the command palette.
     type: class-toggle
     default: false
     addCommand: true
   - id: lw-art-style
-    title: Estilo del paisaje
-    description: Pixel clásico usa formas sencillas y píxeles grandes. Detallado conserva la ilustración original. Ambos cambian entre día y noche.
+    title: Landscape style
+    description: Classic pixel uses simple shapes and large pixels. Detailed keeps the original artwork. Both switch between day and night.
     type: class-select
     allowEmpty: false
     default: lw-art-classic
     options:
-      - label: Pixel clásico — menos detalle
+      - label: Classic pixel — less detail
         value: lw-art-classic
-      - label: Detallado — más detalle
+      - label: Detailed — more detail
         value: lw-art-detailed
   - id: lw-forest-height
-    title: Altura del fondo
-    description: Cuánto asciende el paisaje desde el borde inferior. El degradado lo funde con el fondo y no ocupa espacio de lectura.
+    title: Background height
+    description: How far the scenery rises from the bottom edge. It fades into the background without taking up reading space.
     type: variable-number-slider
     default: 360
     min: 100
@@ -148,42 +148,42 @@ settings:
     step: 10
     format: px
   - id: lw-forest-opacity
-    title: Opacidad del bosque
-    description: Menos opacidad para concentrarte en el texto; más para disfrutar del paisaje.
+    title: Forest opacity
+    description: Lower opacity to focus on the text; raise it to make the scenery more visible.
     type: variable-number-slider
     default: 0.4
     min: 0.1
     max: 0.8
     step: 0.05
   - id: lw-forest-brightness
-    title: Luminosidad del bosque
+    title: Forest brightness
     type: variable-number-slider
     default: 1
     min: 0.5
     max: 1.2
     step: 0.05
   - id: lw-type
-    title: Tipografía y lectura
+    title: Typography and reading
     type: heading
     level: 1
     collapsed: false
   - id: lw-plain-headings
-    title: Títulos con tu fuente de lectura
-    description: Sustituye la fuente pixelada de los títulos. Los párrafos siempre respetan la fuente configurada en Obsidian.
+    title: Use reading font for headings
+    description: Replace pixel headings with your reading font. Note text is controlled separately by the pixel note text option.
     type: class-toggle
     default: false
   - id: lw-plain-navigation
-    title: Navegación con tu fuente habitual
-    description: Sustituye Pixelify Sans en el explorador, el esquema y los controles.
+    title: Use regular interface font for navigation
+    description: Replace Pixelify Sans in the file explorer, outline and controls.
     type: class-toggle
     default: false
   - id: lw-pixel-text
-    title: Pixelar también el texto de las notas
-    description: Máxima estética de videojuego. Desactivado, los párrafos respetan tu fuente de lectura.
+    title: Use pixel font for note text
+    description: Use pixel typography throughout your notes. When disabled, paragraphs use your reading font.
     type: class-toggle
     default: false
   - id: lw-readable-width
-    title: Ancho de lectura
+    title: Reading width
     type: variable-number-slider
     default: 760
     min: 520
@@ -191,8 +191,8 @@ settings:
     step: 20
     format: px
   - id: lw-native-icons
-    title: Usar los iconos originales de Obsidian
-    description: Desactiva los iconos pixelados del tema.
+    title: Use native Obsidian icons
+    description: Replace the theme's pixel icons with the original Obsidian icons.
     type: class-toggle
     default: false
 */

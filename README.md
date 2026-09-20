@@ -3,7 +3,7 @@
 # Lanternwood
 
 A pixel-art Obsidian theme: warm lanterns, forest greens, stepped details and
-a quiet place to write. Version **0.2.0**. Original theme by David Hurtado.
+a quiet place to write. Version **0.2.1**. Original theme by David Hurtado.
 
 Inspired by the atmosphere of **Kingdom Two Crowns**, with original scenery and
 no extracted game assets. Choose a simple pixel interface, a chunky classic
@@ -22,15 +22,15 @@ dark mode is on the lower-right. These are user-supplied captures of Obsidian.
 
 ![Pixel interface without a landscape — light and dark comparison](screenshots/plain-comparison.png)
 
-Turn **Activar el bosque** off for a clean background. The pixel typography,
+Turn **Enable forest** off for a clean background. The pixel typography,
 square controls and theme colors remain.
 
 ### Detailed forest
 
 ![Detailed forest — light and dark comparison](screenshots/detailed-comparison.png)
 
-Enable the forest and select **Detallado — más detalle** for finer textures.
-For the chunky artwork shown at the top, select **Pixel clásico — menos detalle**.
+Enable the forest and select **Detailed — more detail** for finer textures.
+For the chunky artwork shown at the top, select **Classic pixel — less detail**.
 These three backgrounds × two color schemes make the six looks shown here.
 
 All three screenshots use optional pixel note text. On a fresh install, note
@@ -38,11 +38,11 @@ paragraphs keep your reading font and the forest is off.
 
 ## Install
 
-1. Download [Lanternwood-0.2.0.zip](https://github.com/DavidHurtadoAI/lanternwood/releases/download/0.2.0/Lanternwood-0.2.0.zip) from the release. Extract and copy its `Lanternwood` folder into your vault's
+1. Download [Lanternwood-0.2.1.zip](https://github.com/DavidHurtadoAI/lanternwood/releases/download/0.2.1/Lanternwood-0.2.1.zip) from the release. Extract and copy its `Lanternwood` folder into your vault's
    `.obsidian/themes/` directory. It contains `manifest.json` and `theme.css`.
 2. Select **Lanternwood** under **Settings → Appearance → Themes**.
 3. Install and enable **Style Settings** if you want to customize the theme.
-4. Open **Settings → Style Settings → Lanternwood → Bosque → Activar el bosque**.
+4. Open **Settings → Style Settings → Lanternwood → Forest → Enable forest**.
 
 Alternatively, download `manifest.json` and `theme.css` from the same release
 and place both in `.obsidian/themes/Lanternwood/`. Requires Obsidian **1.14.2
@@ -56,11 +56,11 @@ are needed at runtime. The complete CSS is about 10 MiB.
 
 ## Day and night
 
-Choose **Estilo del paisaje** in Style Settings:
+Choose **Landscape style** in Style Settings:
 
-- **Pixel clásico — menos detalle** (default): large pixel clusters, simpler silhouettes,
+- **Classic pixel — less detail** (default): large pixel clusters, simpler silhouettes,
   fewer fine textures and broader reflections, guided by the supplied Kingdom Two Crowns reference.
-- **Detallado — más detalle**: the original finer-textured forest artwork.
+- **Detailed — more detail**: the original finer-textured forest artwork.
 
 Each style has its own matching day/night pair. This selection changes the artwork,
 not the typography, opacity, forest height or editor layout.
@@ -79,21 +79,21 @@ visible area changes with the window size and chosen background height. It is st
 ## Style Settings
 
 Open **Settings → Style Settings → Lanternwood**. There are **10 controls in
-two groups**. The labels below match the Spanish labels in the plugin, even
-when Obsidian itself is in English. Changes apply immediately.
+two groups**. All option labels and descriptions are in English, regardless of
+Obsidian's interface language. Changes apply immediately.
 
 **The tables give fresh-install defaults.** Your saved preferences can differ.
 Use the reset arrow next to a modified control to return it to its default.
 
-### Bosque — landscape
+### Forest
 
 | Control | Default | Available values | What it does |
 | --- | --- | --- | --- |
-| **Activar el bosque** | Off | On / Off | Shows the landscape behind the editor and sidebars. Also adds a forest toggle to the command palette. Disabling it leaves the rest of the pixel theme active. |
-| **Estilo del paisaje** | Pixel clásico — menos detalle | Pixel clásico — menos detalle / Detallado — más detalle | Chooses simpler shapes and larger pixel clusters, or the finer-textured original artwork. Both include matching day and night images. Only the scenery changes. |
-| **Altura del fondo** | 360 px | 100–600 px, in steps of 10 | Sets how far the backdrop rises from the bottom of the workspace. Its top fades into the background. This does not reserve space or shorten the editor. |
-| **Opacidad del bosque** | 0.4 | 0.1–0.8, in steps of 0.05 | Controls transparency: lower values blend the scenery more gently into the workspace; higher values make it more visible behind the text. |
-| **Luminosidad del bosque** | 1 | 0.5–1.2, in steps of 0.05 | Adjusts the image's brightness: 1 keeps the original brightness, values below 1 darken it and values above 1 brighten it. |
+| **Enable forest** | Off | On / Off | Shows the landscape behind the editor and sidebars. Also adds a forest toggle to the command palette. Disabling it leaves the rest of the pixel theme active. |
+| **Landscape style** | Classic pixel — less detail | Classic pixel — less detail / Detailed — more detail | Chooses simpler shapes and larger pixel clusters, or the finer-textured original artwork. Both include matching day and night images. Only the scenery changes. |
+| **Background height** | 360 px | 100–600 px, in steps of 10 | Sets how far the backdrop rises from the bottom of the workspace. Its top fades into the background. This does not reserve space or shorten the editor. |
+| **Forest opacity** | 0.4 | 0.1–0.8, in steps of 0.05 | Controls transparency: lower values blend the scenery more gently into the workspace; higher values make it more visible behind the text. |
+| **Forest brightness** | 1 | 0.5–1.2, in steps of 0.05 | Adjusts the image's brightness: 1 keeps the original brightness, values below 1 darken it and values above 1 brighten it. |
 
 **Opacity and brightness are independent.** Lower opacity for a quieter reading
 background; lower brightness when the image itself feels too bright. Height,
@@ -105,23 +105,22 @@ proportions and may crop as the window changes size. A tall, opaque forest
 deliberately reaches farther behind the note, reducing contrast near the bottom.
 Light and dark modes use the same control values, with different artwork.
 
-### Tipografía y lectura — typography and reading
+### Typography and reading
 
 | Control | Default | Available values | What it does |
 | --- | --- | --- | --- |
-| **Títulos con tu fuente de lectura** | Off | On / Off | Replaces the pixel heading font with the reading font. Applies to note headings, the inline title and callout titles. Leave off for pixel headings. |
-| **Navegación con tu fuente habitual** | Off | On / Off | Uses your regular interface font for the file explorer, outline, view-header title, settings labels, buttons and dropdowns. Leave off for pixel navigation. |
-| **Pixelar también el texto de las notas** | Off | On / Off | Uses Pixelify Sans for note text in editing and reading views, with a 19 px base size. When off, paragraphs use your Obsidian reading font. |
-| **Ancho de lectura** | 760 px | 520–1000 px, in steps of 20 | Sets the target readable line width. Requires Obsidian's **Settings → Editor → Readable line length** to be enabled; the available pane width still limits it. |
-| **Usar los iconos originales de Obsidian** | Off | On / Off | Restores native icons in place of the theme's 16 custom pixel glyph designs and their aliases. Icons outside that custom set already retain their native appearance. |
+| **Use reading font for headings** | Off | On / Off | Replaces the pixel heading font with the reading font. Applies to note headings, the inline title and callout titles. Leave off for pixel headings. |
+| **Use regular interface font for navigation** | Off | On / Off | Uses your regular interface font for the file explorer, outline, view-header title, settings labels, buttons and dropdowns. Leave off for pixel navigation. |
+| **Use pixel font for note text** | Off | On / Off | Uses Pixelify Sans for note text in editing and reading views, with a 19 px base size. When off, paragraphs use your Obsidian reading font. |
+| **Reading width** | 760 px | 520–1000 px, in steps of 20 | Sets the target readable line width. Requires Obsidian's **Settings → Editor → Readable line length** to be enabled; the available pane width still limits it. |
+| **Use native Obsidian icons** | Off | On / Off | Restores native icons in place of the theme's 16 custom pixel glyph designs and their aliases. Icons outside that custom set already retain their native appearance. |
 
 The font switches have specific scopes: tabs, the title bar, status bar, modal
 titles and frontmatter properties retain their pixel styling. Property names
 have no decorative border. The native-icon switch changes glyphs, independently
 of fonts and scenery.
 
-For your configured reading font throughout a note, turn **Títulos con tu fuente
-de lectura** on and **Pixelar también el texto de las notas** off.
+For your configured reading font throughout a note, turn **Use reading font for headings** on and **Use pixel font for note text** off.
 
 ### Settings provided by Obsidian
 
@@ -162,11 +161,11 @@ Standard headings, tasks, links, tables, code, tags, quotes, properties and
 callouts are styled. Two optional callouts add a lantern or woodland accent:
 
 ```md
-> [!lantern] Para recordar
-> Deja espacio para las ideas nuevas.
+> [!lantern] Something to remember
+> Leave room for new ideas.
 
-> [!forest] Un bosque de conexiones
-> Las buenas notas abren caminos.
+> [!forest] A forest of connections
+> Good notes open new paths.
 ```
 
 `[!remember]` is an alias for the lantern callout.

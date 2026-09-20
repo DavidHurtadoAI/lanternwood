@@ -1,4 +1,12 @@
-# Validation — Lanternwood 0.2.0
+# Validation — Lanternwood 0.2.1
+
+## 0.2.1 verification
+
+- All Style Settings labels, descriptions, groups and landscape choices are in English.
+- Compared settings with 0.2.0: IDs, values, defaults and behavior are unchanged.
+- All ten control labels match the README.
+- Build, packaging checks and Stylelint pass.
+- Installed in the development vault; Obsidian reports the English settings and no Style Settings errors.
 
 ## 0.2.0 additional verification
 
