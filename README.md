@@ -200,10 +200,22 @@ them; it never modifies note content.
 
 See [VALIDATION.md](VALIDATION.md) for actual coverage and limitations.
 
-## Attribution
+## License
 
-See [LICENSE](LICENSE) for the MIT license and
-[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for the separate font license.
+Lanternwood is released under the **[MIT License](LICENSE)**.
+Copyright © 2026 David Hurtado.
+
+You may use, copy, modify and distribute the theme, including for commercial
+purposes, provided you retain the copyright and license notice. The theme is
+provided "as is", without warranty. See the full license for its terms.
+
+The bundled **Pixelify Sans** font has its own **SIL Open Font License 1.1**;
+it is not covered by the theme's MIT license. Its copyright and complete terms
+are included in [assets/OFL-PixelifySans.txt](assets/OFL-PixelifySans.txt),
+embedded in the CSS, and included with release ZIPs. See also
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+## Attribution
 
 - CSS, controls and pixel glyphs: original, MIT, © 2026 David Hurtado.
 - Pixelify Sans: SIL Open Font License 1.1; see [the bundled license](assets/OFL-PixelifySans.txt).
