@@ -202,6 +202,9 @@ See [VALIDATION.md](VALIDATION.md) for actual coverage and limitations.
 
 ## Attribution
 
+See [LICENSE](LICENSE) for the MIT license and
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for the separate font license.
+
 - CSS, controls and pixel glyphs: original, MIT, © 2026 David Hurtado.
 - Pixelify Sans: SIL Open Font License 1.1; see [the bundled license](assets/OFL-PixelifySans.txt).
 - Original day/night scenery generated with OpenAI's built-in image generation
