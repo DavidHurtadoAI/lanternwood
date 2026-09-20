@@ -146,6 +146,22 @@ directly in the theme CSS. Its internal CSS family name, `Lanternwood Pixel`,
 is an alias for Pixelify Sans, not a different typeface. You do not need to
 install it, and it loads without a network connection.
 
+**Prefer a different font?** Use Style Settings to disable Pixelify Sans for
+note text, headings and navigation, then choose your replacement fonts using
+Obsidian's standard font settings:
+
+1. Open **Settings → Style Settings → Lanternwood → Typography and reading**.
+2. Turn **Use pixel font for note text** **off**.
+3. Turn **Use reading font for headings** and
+   **Use regular interface font for navigation** **on**.
+4. Open **Settings → Appearance** and select your preferred **Text font** and
+   **Interface font**. You can also choose a separate **Monospace font** for code.
+
+Style Settings controls where the theme uses Pixelify Sans; the replacement
+font is selected in Obsidian, not in a font picker inside Style Settings.
+These switches do not remove Pixelify Sans from every part of the interface:
+tabs, title/status bars, modal titles and frontmatter properties retain it.
+
 | Area | Font used |
 | --- | --- |
 | Headings, inline title and callout titles | Pixelify Sans by default; the heading switch selects the reading font. |
