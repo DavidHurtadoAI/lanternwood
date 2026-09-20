@@ -2,8 +2,10 @@
 
 # Lanternwood
 
-A pixel-art Obsidian theme: warm lanterns, forest greens, stepped details and
-a quiet place to write. Version **0.2.1**. Original theme by David Hurtado.
+A highly customizable pixel-art Obsidian theme with **10 configuration options**
+for landscapes, typography, reading width and icons through Style Settings.
+Warm lanterns, forest greens and stepped details create a quiet place to write.
+Version **0.2.1**. Original theme by David Hurtado.
 
 Inspired by the atmosphere of **Kingdom Two Crowns**, with original scenery and
 no extracted game assets. Choose a simple pixel interface, a chunky classic
