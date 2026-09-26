@@ -1,6 +1,6 @@
 {
   "name": "Lanternwood",
-  "version": "0.2.2",
-  "minAppVersion": "1.14.2",
+  "version": "0.2.3",
+  "minAppVersion": "0.0.0",
   "author": "David Hurtado"
 }

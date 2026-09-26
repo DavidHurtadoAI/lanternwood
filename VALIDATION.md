@@ -1,4 +1,12 @@
-# Validation — Lanternwood 0.2.2
+# Validation — Lanternwood 0.2.3
+
+## 0.2.3 verification
+
+- Clean dependency installation with `npm ci --ignore-scripts` and a successful build.
+- Stylelint passes with zero warnings; CSS, settings, embedded assets and packaging checks pass.
+- Manifest, package, lockfile and versions map agree on 0.2.3 and minimum app metadata `0.0.0`.
+- Compared generated CSS against 0.2.2: only the version comment changes; styles and embedded assets are identical.
+- The installation version restriction is removed. This does not establish compatibility with every historical Obsidian version.
 
 ## 0.2.2 verification
 

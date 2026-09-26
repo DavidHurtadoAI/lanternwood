@@ -5,7 +5,7 @@
 A highly customizable pixel-art Obsidian theme with **10 configuration options**
 for landscapes, typography, reading width and icons through Style Settings.
 Warm lanterns, forest greens and stepped details create a quiet place to write.
-Version **0.2.2**. Original theme by David Hurtado.
+Version **0.2.3**. Original theme by David Hurtado.
 
 Inspired by the atmosphere of **Kingdom Two Crowns**, with original scenery and
 no extracted game assets. Choose a simple pixel interface, a chunky classic
@@ -40,16 +40,21 @@ paragraphs keep your reading font and the forest is off.
 
 ## Install
 
-1. Download [Lanternwood-0.2.2.zip](https://github.com/DavidHurtadoAI/lanternwood/releases/download/0.2.2/Lanternwood-0.2.2.zip) from the release. Extract and copy its `Lanternwood` folder into your vault's
+In Obsidian, open **Settings → Appearance → Themes → Manage**, search for
+**Lanternwood**, then install and use it.
+
+For manual installation:
+
+1. Download [Lanternwood-0.2.3.zip](https://github.com/DavidHurtadoAI/lanternwood/releases/download/0.2.3/Lanternwood-0.2.3.zip) from the release. Extract and copy its `Lanternwood` folder into your vault's
    `.obsidian/themes/` directory. It contains `manifest.json` and `theme.css`.
 2. Select **Lanternwood** under **Settings → Appearance → Themes**.
 3. Install and enable **Style Settings** if you want to customize the theme.
 4. Open **Settings → Style Settings → Lanternwood → Forest → Enable forest**.
 
 Alternatively, download `manifest.json` and `theme.css` from the same release
-and place both in `.obsidian/themes/Lanternwood/`. Requires Obsidian **1.14.2
-or later**. This theme is not yet listed in the Community Themes directory.
-To update, replace those two files with the files from the newer release.
+and place both in `.obsidian/themes/Lanternwood/`. Version **0.2.3** removes the
+installation version restriction and no longer requires Obsidian Early Access.
+For manual updates, replace those two files with the files from the newer release.
 
 The forest is off by default in a fresh install. The pixel theme works without
 Style Settings. Font, original glyphs and all four landscapes are embedded in CSS:

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.3 — 2026-09-26
+
+- Remove the installation version restriction; Obsidian Early Access is no longer required.
+- Set the required `minAppVersion` metadata to `0.0.0` for this release.
+- Preserve the existing theme appearance, embedded assets and settings.
+
 ## 0.2.2 — 2026-09-20
 
 - Reduce theme.css from 10.45 MB to approximately 0.96 MB to address the directory size warning.
