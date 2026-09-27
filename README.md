@@ -5,7 +5,7 @@
 A highly customizable pixel-art Obsidian theme with **12 configuration options**
 for landscapes, typography, reading width and icons through Style Settings.
 Warm lanterns, forest greens and stepped details create a quiet place to write.
-Version **0.4.2**. Original theme by David Hurtado.
+Version **0.4.3**. Original theme by David Hurtado.
 
 Inspired by the atmosphere of **Kingdom Two Crowns**, with original scenery and
 no extracted game assets. Choose a simple pixel interface, a chunky classic
@@ -45,7 +45,7 @@ In Obsidian, open **Settings → Appearance → Themes → Manage**, search for
 
 For manual installation:
 
-1. Download [Lanternwood-0.4.2.zip](https://github.com/DavidHurtadoAI/lanternwood/releases/download/0.4.2/Lanternwood-0.4.2.zip) from the release. Extract and copy its `Lanternwood` folder into your vault's
+1. Download [Lanternwood-0.4.3.zip](https://github.com/DavidHurtadoAI/lanternwood/releases/download/0.4.3/Lanternwood-0.4.3.zip) from the release. Extract and copy its `Lanternwood` folder into your vault's
    `.obsidian/themes/` directory. It contains `manifest.json` and `theme.css`.
 2. Select **Lanternwood** under **Settings → Appearance → Themes**.
 3. Install and enable **Style Settings** if you want to customize the theme.
@@ -219,6 +219,7 @@ Requires Node.js and npm. No build step is needed for users installing the ZIP.
 npm ci --ignore-scripts
 npm run build
 npm run lint
+npm run lint:compat
 npm run check
 ```
 
@@ -267,8 +268,10 @@ Published releases are available on [GitHub](https://github.com/DavidHurtadoAI/l
 The theme has not been submitted to the Community Themes directory.
 Choose another theme in Appearance to deactivate it.
 
-## Mask compatibility
+## Browser compatibility
 
-Pixel icons, checkbox marks and the forest fade include WebKit-prefixed masks for older browser engines. Pixel icon replacement is enabled only when CSS masks are supported; otherwise, the original Obsidian icons remain visible. Without masks, the forest retains its overall transparency but loses the gradient fade. The native icon option remains available in Style Settings.
+Version **0.4.3** removes CSS masks entirely. Pixel icons use small CSS gradient blocks that inherit each control's color; checkbox marks use the same technique. The four WebP landscapes include their own transparent top fade, so the forest still blends into the editor. Opacity, brightness, height, landscape style and native-icon settings remain available.
 
-The browser-feature validator may still flag standard CSS masks against its Obsidian 1.4.5 baseline. The prefixed declarations and feature checks address the fallback behavior; they do not certify every feature of the theme on historical Obsidian versions. The lint configuration allows only the three required WebKit mask properties.
+The landscape is aligned to the top to keep its transparent edge visible. Its crop and fade extent can differ slightly from earlier releases as the window changes shape. Original PNG artwork is preserved; `npm run optimize:assets` recreates the alpha-faded WebP assets reproducibly.
+
+Both the normal lint and an additional Chromium 114 compatibility check pass with zero warnings. The extra check reproduces the 100 mask warnings in 0.4.2 and reports none in 0.4.3, without suppressing the rule. This removes the source of the reported `css-masks` warning; it is not a certification of every theme feature on historical Obsidian versions. The remote Community Themes validator must still run against the updated file.

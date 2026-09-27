@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.3 — 2026-09-27
+
+- Remove all CSS masks and the vendor-prefix lint exception.
+- Draw pixel icons and checkbox marks with current-color gradient blocks.
+- Bake the forest fade into all four WebP assets; keep original PNGs and configurable scene controls.
+- Align the scenery to the top so cropping cannot expose a hard upper edge.
+- Add a Chromium 114 compatibility check and regression checks for transparent assets and mask-free CSS.
+
 ## 0.4.2 — 2026-09-27
 
 - Add WebKit-prefixed masks for pixel icons, checkbox marks and the forest fade.

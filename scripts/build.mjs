@@ -51,17 +51,21 @@ const icons = {
   'square-pen': ['..#######.......','..#........###..','..#.......#..#..','..#......#..#...','..#.....#..#....','..#....#..#.....','..#...#..#......','..#...###.......','..#...#.....#...','..#.........#...','..###########...'],
 };
 const aliases = { 'folder-closed': 'folder', 'file': 'file-text', 'file-search': 'search', 'calendar-days': 'calendar', 'book-open-text': 'book-open', 'settings-2': 'settings', 'lamp-desk': 'lamp' };
-const maskSupport = '(mask-image: linear-gradient(#000, #000)) or (-webkit-mask-image: linear-gradient(#000, #000))';
+// Each occupied horizontal run becomes a solid, current-color background layer.
+// Background positions are relative to the remaining space, not the full icon.
+const pct = n => Number(n.toFixed(4)) + '%';
+const pixelBackground = rows => {
+  const runs = rows.flatMap((row, y) => [...row.matchAll(/#+/g)].map(m => ({ x: m.index, y: y + 1, w: m[0].length })));
+  return 'background-image: ' + runs.map(() => 'linear-gradient(currentcolor, currentcolor)').join(', ') + ';\n  background-position: ' + runs.map(r => pct(r.w === 16 ? 0 : r.x / (16 - r.w) * 100) + ' ' + pct(r.y / 15 * 100)).join(', ') + ';\n  background-size: ' + runs.map(r => pct(r.w / 16 * 100) + ' 6.25%').join(', ') + ';\n  background-repeat: no-repeat;';
+};
 let iconCss = '';
 for (const [name, rows] of Object.entries(icons)) {
-  const rects = `<path d="${rows.flatMap((row, y) => [...row.matchAll(/#+/g)].map(m => `M${m.index} ${y + 1}h${m[0].length}v1h-${m[0].length}z`)).join('')}"/>`;
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges">${rects}</svg>`;
   const names = [name, ...Object.keys(aliases).filter(a => aliases[a] === name)];
   const selectors = names.map(n => `body:not(.lw-native-icons) svg.lucide-${n}`);
-  iconCss += `${selectors.join(',\n')} {\n  background-color: currentColor;\n  -webkit-mask-image: url("data:image/svg+xml,${encodeURIComponent(svg)}");\n  mask-image: url("data:image/svg+xml,${encodeURIComponent(svg)}");\n  -webkit-mask-size: 100% 100%;\n  mask-size: 100% 100%;\n  -webkit-mask-repeat: no-repeat;\n  mask-repeat: no-repeat;\n  image-rendering: pixelated;\n}\n`;
+  iconCss += `${selectors.join(',\n')} {\n  ${pixelBackground(rows)}\n}\n`;
   iconCss += `${selectors.map(s => `${s} > *`).join(',\n')} {\n  visibility: hidden;\n}\n`;
 }
-const output = `/* Lanternwood ${manifest.version} | David Hurtado | MIT\n * Generated from src/theme.css — npm run build. No network dependencies.\n */\n${fontCss}\nbody { --lw-forest-art: url("data:image/webp;base64,${forest}"); }\n\n${source}\n/* Original pixel glyphs: preserve native SVG children if masks are unsupported. */\n@supports ${maskSupport} {\n${iconCss}\n}`;
+const output = `/* Lanternwood ${manifest.version} | David Hurtado | MIT\n * Generated from src/theme.css — npm run build. No network dependencies.\n */\n${fontCss}\nbody { --lw-forest-art: url("data:image/webp;base64,${forest}"); }\n\n${source}\n/* Original pixel glyphs drawn with current-color gradient cells. */\n${iconCss}`;
 // Chromium limits custom-property token streams to 2 MiB. Large image data
 // URLs must be direct background-image values, never CSS custom properties.
 const finalCss = output.replace(`body { --lw-forest-art: url("data:image/webp;base64,${forest}"); }`, '')

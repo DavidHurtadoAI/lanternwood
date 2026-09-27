@@ -1,4 +1,16 @@
-# Validation — Lanternwood 0.4.2
+# Validation — Lanternwood 0.4.3
+
+## 0.4.3 verification
+
+- Build, standard Stylelint, packaging and additional Chromium 114 browser-feature checks pass with zero warnings. No lint suppressions or vendor-prefix exceptions.
+- The same browser-feature rule reports 100 css-masks warnings against the 0.4.2 tag and zero warnings against 0.4.3.
+- Checked all 4,096 cells across the 16 generated glyphs at 32 px in headless Edge, in white and gold; all occupied and empty cells match the source grids. Native icon switching preserves original SVG geometry.
+- Actual Obsidian checkbox inspection confirms the native masked pseudo-element is hidden and the gradient marker is present for checked and disabled-checked controls, absent for unchecked controls. Visually inspected the marks.
+- Actual Style Settings selector checks pass for classic/detailed × light/dark. Images decode at 2172×724, remain behind the editor, reserve no layout space, and produce no Style Settings errors. Preferences restored after checks.
+- All four embedded WebP images have transparent top rows, intermediate alpha in the fade and opaque bottom pixels before the configured scene opacity. Original PNG files remain unchanged.
+- Visually reviewed classic light and dark and detailed dark captures. Top-aligned imagery avoids a clipped opaque top edge; cropping differs from the previous centered background.
+- CSS stays below the project's 1,000,000-byte budget. This is local validation, not a claim that the remote Community Themes validator has rerun or that Obsidian 1.4.5 was launched.
+
 
 ## 0.4.2 verification
 

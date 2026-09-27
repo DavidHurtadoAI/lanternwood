@@ -45,6 +45,13 @@ for (const file of ['forest.webp', 'forest-day.webp', 'forest-classic.webp', 'fo
   const image = await read(`assets/${file}`);
   const metadata = await sharp(image).metadata();
   assert.equal(metadata.format, 'webp');
+  assert(metadata.hasAlpha, 'Landscape includes its fade');
+  const { data, info } = await sharp(image).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  for (let x = 0; x < info.width; x++) assert.equal(data[x * 4 + 3], 0, 'Top row is fully transparent');
+  const center = Math.floor(info.width / 2);
+  const alphaAt = y => data[(y * info.width + center) * 4 + 3];
+  assert(alphaAt(Math.floor(info.height * 0.2)) > 0 && alphaAt(Math.floor(info.height * 0.2)) < 255, 'Fade has intermediate alpha');
+  assert.equal(alphaAt(info.height - 1), 255, 'Bottom remains opaque before configured opacity');
   const size = [metadata.width, metadata.height];
   assert.deepEqual(size, [2172, 724], 'Original landscape dimensions preserved');
   if (dimensions) assert.deepEqual(size, dimensions, 'Day/night dimensions match');
@@ -61,17 +68,6 @@ assert.equal(art.default, 'lw-art-classic');
 assert.deepEqual(art.options.map(o => o.value), ['lw-art-classic', 'lw-art-detailed']);
 console.log(`PASS: CSS parsed; ${settings.settings.length} valid settings; synchronized ${manifest.version}; font and four ${dimensions.join('×')} landscapes embedded; no remote assets or oversized variables.`);
 
-// Mask fallbacks must remain paired and must never hide native icons unconditionally.
-let maskedIcons = 0;
-tree.walkDecls(/^mask-(image|size|repeat)$/, d => {
-  assert(d.parent.nodes.some(n => n.type === 'decl' && n.prop === '-webkit-' + d.prop && n.value === d.value), 'Missing matching prefixed mask: ' + d.prop);
-});
-tree.walkRules(rule => {
-  if (!rule.selector.includes('svg.lucide-')) return;
-  let parent = rule.parent;
-  while (parent && !(parent.type === 'atrule' && parent.name === 'supports' && parent.params.includes('(-webkit-mask-image:') && parent.params.includes('(mask-image:'))) parent = parent.parent;
-  assert(parent, 'Pixel icon replacement must be guarded by mask support');
-  maskedIcons++;
-});
-assert(maskedIcons > 0);
-console.log('PASS: prefixed masks paired; all pixel icon replacements preserve native fallback.');
+// Reject this feature outright: prefixed declarations also trigger the validator.
+assert(!/(?:-webkit-)?mask(?:-image|-size|-repeat)?\s*:/i.test(css), 'No CSS masks allowed');
+console.log('PASS: no CSS mask declarations or feature queries.');

@@ -1,13 +1,14 @@
 {
   "name": "lanternwood-theme",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "private": true,
   "scripts": {
     "build": "node scripts/build.mjs",
     "install:dev": "node scripts/install.mjs",
     "check": "node scripts/check.mjs",
     "lint": "stylelint src/theme.css theme.css --max-warnings 0",
-    "optimize:assets": "node scripts/optimize-assets.mjs"
+    "optimize:assets": "node scripts/optimize-assets.mjs",
+    "lint:compat": "node scripts/check-browser-compat.mjs"
   },
   "devDependencies": {
     "js-yaml": "^5.4.2",

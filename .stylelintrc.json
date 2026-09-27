@@ -1,15 +1,1 @@
-{
-  "extends": "stylelint-config-obsidianmd",
-  "rules": {
-    "property-no-vendor-prefix": [
-      true,
-      {
-        "ignoreProperties": [
-          "-webkit-mask-image",
-          "-webkit-mask-size",
-          "-webkit-mask-repeat"
-        ]
-      }
-    ]
-  }
-}
+{ "extends": "stylelint-config-obsidianmd" }
