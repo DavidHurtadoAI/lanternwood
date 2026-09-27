@@ -1,12 +1,17 @@
 # Third-party notices
 
-The Lanternwood theme is licensed under the [MIT License](LICENSE).
+Lanternwood code uses the [MIT License](LICENSE). The bundled fonts instead use
+the SIL Open Font License 1.1. Latin WOFF2 subsets have renamed internal families;
+original source fonts and their full licenses are retained.
 
-The bundled **Pixelify Sans** font is separately licensed under the **SIL Open
-Font License 1.1**, not the MIT License.
+| Typeface | License and copyright notice |
+| --- | --- |
+| Pixelify Sans | [OFL-PixelifySans.txt](assets/OFL-PixelifySans.txt) |
+| Silkscreen | [OFL-silkscreen.txt](assets/fonts/OFL-silkscreen.txt) |
+| Geist Pixel Square | [OFL-Geist.txt](assets/fonts/OFL-Geist.txt) |
+| VT323 | [OFL-vt323.txt](assets/fonts/OFL-vt323.txt) |
+| DotGothic16 | [OFL-dotgothic16.txt](assets/fonts/OFL-dotgothic16.txt) |
 
-Copyright 2021 The Pixelify Sans Project Authors.
-
-The complete font copyright notice and license are in
-[assets/OFL-PixelifySans.txt](assets/OFL-PixelifySans.txt) and embedded in
-`theme.css`. Release ZIPs also include `OFL-PixelifySans.txt`.
+All font licenses are embedded in theme.css and included in release ZIPs.
+Geist source revision: 10dc7658f13c38a474cde201bb09a4617267545b in vercel/geist-font.
+The other new sources come from the respective ofl directories in google/fonts.

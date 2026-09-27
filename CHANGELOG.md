@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0 — 2026-09-27
+
+- Add the Pixel font selector with Pixelify Sans, Silkscreen, Geist Pixel Square, VT323 and DotGothic16.
+- Apply the selected font throughout pixel UI, properties and optional pixel note text.
+- Preserve existing font overrides and keep Pixelify Sans as the default.
+- Embed compact Latin WOFF2 subsets and all font licenses; retain the 1 MB CSS budget.
+
 ## 0.2.3 — 2026-09-26
 
 - Remove the installation version restriction; Obsidian Early Access is no longer required.

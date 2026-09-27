@@ -5,12 +5,21 @@ import path from 'node:path';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = p => readFile(path.join(root, p));
 const manifest = JSON.parse(await read('manifest.json'));
-const font = (await read('assets/PixelifySans.ttf')).toString('base64');
+const fonts = JSON.parse(await read('assets/fonts/fonts.json'));
+let fontCss = '';
+const licenses = new Set();
+for (const face of fonts) {
+  const font = (await read('assets/fonts/' + face.file)).toString('base64');
+  if (!licenses.has(face.license)) {
+    fontCss += '/*\n' + (await read('assets/fonts/' + face.license)).toString().replace(/[ \t]+$/gm, '') + '\n*/\n';
+    licenses.add(face.license);
+  }
+  fontCss += '@font-face {\n  font-family: "' + face.family + '";\n  src: url("data:font/woff2;base64,' + font + '") format("woff2");\n  font-weight: ' + face.weight + ';\n  font-style: normal;\n  font-display: swap;\n}\n';
+}
 const forest = (await read('assets/forest.webp')).toString('base64');
 const forestDay = (await read('assets/forest-day.webp')).toString('base64');
 const classic = (await read('assets/forest-classic.webp')).toString('base64');
 const classicDay = (await read('assets/forest-classic-day.webp')).toString('base64');
-const license = (await read('assets/OFL-PixelifySans.txt')).toString();
 const source = await read('src/theme.css');
 
 // Original 16×16 pixel glyphs, represented as occupied cells. Preserve the
@@ -43,7 +52,7 @@ for (const [name, rows] of Object.entries(icons)) {
   iconCss += `${selectors.join(',\n')} {\n  background-color: currentColor;\n  mask-image: url("data:image/svg+xml,${encodeURIComponent(svg)}");\n  mask-size: 100% 100%;\n  mask-repeat: no-repeat;\n  image-rendering: pixelated;\n}\n`;
   iconCss += `${selectors.map(s => `${s} > *`).join(',\n')} {\n  visibility: hidden;\n}\n`;
 }
-const output = `/* Lanternwood ${manifest.version} | David Hurtado | MIT\n * Generated from src/theme.css — npm run build. No network dependencies.\n */\n/*\n${license}\n*/\n@font-face {\n  font-family: "Lanternwood Pixel";\n  src: url("data:font/ttf;base64,${font}") format("truetype");\n  font-weight: 400 700;\n  font-style: normal;\n  font-display: swap;\n}\nbody { --lw-forest-art: url("data:image/webp;base64,${forest}"); }\n\n${source}\n/* Original pixel glyphs */\n${iconCss}`;
+const output = `/* Lanternwood ${manifest.version} | David Hurtado | MIT\n * Generated from src/theme.css — npm run build. No network dependencies.\n */\n${fontCss}\nbody { --lw-forest-art: url("data:image/webp;base64,${forest}"); }\n\n${source}\n/* Original pixel glyphs */\n${iconCss}`;
 // Chromium limits custom-property token streams to 2 MiB. Large image data
 // URLs must be direct background-image values, never CSS custom properties.
 const finalCss = output.replace(`body { --lw-forest-art: url("data:image/webp;base64,${forest}"); }`, '')

@@ -1,6 +1,6 @@
 /* Lanternwood — original theme by David Hurtado, MIT.
    Source file. Run npm run build to embed the offline font, icons and artwork.
-   Pixelify Sans is licensed under the SIL Open Font License 1.1.
+   Bundled fonts are licensed under the SIL Open Font License 1.1.
 */
 
 /* @settings
@@ -58,6 +58,23 @@ settings:
     type: heading
     level: 1
     collapsed: false
+  - id: lw-font
+    title: Pixel font
+    description: Choose the pixel typeface for the interface, headings and properties. Also applies to note text when its pixel font option is enabled.
+    type: class-select
+    allowEmpty: false
+    default: lw-font-pixelify
+    options:
+      - label: Pixelify Sans
+        value: lw-font-pixelify
+      - label: Silkscreen
+        value: lw-font-silkscreen
+      - label: Geist Pixel Square
+        value: lw-font-geist
+      - label: VT323
+        value: lw-font-vt323
+      - label: DotGothic16
+        value: lw-font-dotgothic
   - id: lw-plain-headings
     title: Use reading font for headings
     description: Replace pixel headings with your reading font. Note text is controlled separately by the pixel note text option.
@@ -65,7 +82,7 @@ settings:
     default: false
   - id: lw-plain-navigation
     title: Use regular interface font for navigation
-    description: Replace Pixelify Sans in the file explorer, outline and controls.
+    description: Replace the selected pixel font in the file explorer, outline and controls.
     type: class-toggle
     default: false
   - id: lw-pixel-text
@@ -456,6 +473,22 @@ body {
 
   font-family: var(--lw-pixel-font);
   font-size: 19px;
+}
+
+body.lw-font-silkscreen {
+  --lw-pixel-font: "Lanternwood Silk", monospace;
+}
+
+body.lw-font-geist {
+  --lw-pixel-font: "Lanternwood Square", monospace;
+}
+
+body.lw-font-vt323 {
+  --lw-pixel-font: "Lanternwood Terminal", monospace;
+}
+
+body.lw-font-dotgothic {
+  --lw-pixel-font: "Lanternwood Dot", monospace;
 }
 
 .lw-plain-headings {

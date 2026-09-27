@@ -1,4 +1,13 @@
-# Validation — Lanternwood 0.2.3
+# Validation — Lanternwood 0.3.0
+
+## 0.3.0 verification
+
+- All five choices exercised through the actual Style Settings dropdown in Obsidian 1.14.2.
+- Embedded font loading succeeds for every family, including the Spanish test string.
+- Selected font applies to headings, note text and properties; regular-font overrides still work.
+- Existing settings are restored after the test.
+- Compact WOFF2 fonts, original sources and OFL notices are included; CSS remains below the 1 MB project guardrail.
+- Normal build and packaging check cover all six font faces (Silkscreen includes bold).
 
 ## 0.2.3 verification
 

@@ -1,0 +1,8 @@
+[
+  {"name":"Pixelify Sans","family":"Lanternwood Pixel","source":"../PixelifySans.ttf","file":"pixelify.woff2","weight":"400 700","license":"../OFL-PixelifySans.txt"},
+  {"name":"Silkscreen","family":"Lanternwood Silk","source":"Silkscreen-Regular.ttf","file":"silkscreen.woff2","weight":"400","license":"OFL-silkscreen.txt"},
+  {"name":"Silkscreen Bold","family":"Lanternwood Silk","source":"Silkscreen-Bold.ttf","file":"silkscreen-bold.woff2","weight":"700","license":"OFL-silkscreen.txt"},
+  {"name":"Geist Pixel Square","family":"Lanternwood Square","source":"GeistPixel-Square.ttf","file":"geist-square.woff2","weight":"400","license":"OFL-Geist.txt"},
+  {"name":"VT323","family":"Lanternwood Terminal","source":"VT323-Regular.ttf","file":"vt323.woff2","weight":"400","license":"OFL-vt323.txt"},
+  {"name":"DotGothic16","family":"Lanternwood Dot","source":"DotGothic16-Regular.ttf","file":"dotgothic16.woff2","weight":"400","license":"OFL-dotgothic16.txt"}
+]

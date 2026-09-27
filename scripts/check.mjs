@@ -25,9 +25,18 @@ assert.equal(settings.id, 'lanternwood');
 assert.equal(new Set(settings.settings.map(s => s.id)).size, settings.settings.length);
 assert.equal(settings.settings.find(s => s.id === 'lw-forest').type, 'class-toggle');
 assert.equal(settings.settings.find(s => s.id === 'lw-forest').addCommand, true);
-const font = await read('assets/PixelifySans.ttf');
-assert.equal(font.readUInt32BE(0), 0x00010000, 'Valid TrueType font');
-assert(css.includes(font.toString('base64')), 'Font is embedded');
+const fonts = JSON.parse(await read('assets/fonts/fonts.json'));
+for (const face of fonts) {
+  const font = await read(`assets/fonts/${face.file}`);
+  assert.equal(font.subarray(0, 4).toString(), 'wOF2', 'Valid WOFF2 font');
+  assert(css.includes(font.toString('base64')), `${face.name} is embedded`);
+  const license = (await read(`assets/fonts/${face.license}`)).toString().replace(/[ \t]+$/gm, '');
+  assert(css.includes(license), `${face.name} license is embedded`);
+}
+const fontSetting = settings.settings.find(s => s.id === 'lw-font');
+assert.equal(fontSetting.type, 'class-select');
+assert.equal(fontSetting.default, 'lw-font-pixelify');
+assert.deepEqual(fontSetting.options.map(o => o.label), ['Pixelify Sans', 'Silkscreen', 'Geist Pixel Square', 'VT323', 'DotGothic16']);
 let dimensions;
 for (const file of ['forest.webp', 'forest-day.webp', 'forest-classic.webp', 'forest-classic-day.webp']) {
   const image = await read(`assets/${file}`);
