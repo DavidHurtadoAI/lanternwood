@@ -2,10 +2,10 @@
 
 # Lanternwood
 
-A highly customizable pixel-art Obsidian theme with **11 configuration options**
+A highly customizable pixel-art Obsidian theme with **12 configuration options**
 for landscapes, typography, reading width and icons through Style Settings.
 Warm lanterns, forest greens and stepped details create a quiet place to write.
-Version **0.3.1**. Original theme by David Hurtado.
+Version **0.4.0**. Original theme by David Hurtado.
 
 Inspired by the atmosphere of **Kingdom Two Crowns**, with original scenery and
 no extracted game assets. Choose a simple pixel interface, a chunky classic
@@ -45,7 +45,7 @@ In Obsidian, open **Settings → Appearance → Themes → Manage**, search for
 
 For manual installation:
 
-1. Download [Lanternwood-0.3.1.zip](https://github.com/DavidHurtadoAI/lanternwood/releases/download/0.3.1/Lanternwood-0.3.1.zip) from the release. Extract and copy its `Lanternwood` folder into your vault's
+1. Download [Lanternwood-0.4.0.zip](https://github.com/DavidHurtadoAI/lanternwood/releases/download/0.4.0/Lanternwood-0.4.0.zip) from the release. Extract and copy its `Lanternwood` folder into your vault's
    `.obsidian/themes/` directory. It contains `manifest.json` and `theme.css`.
 2. Select **Lanternwood** under **Settings → Appearance → Themes**.
 3. Install and enable **Style Settings** if you want to customize the theme.
@@ -87,7 +87,7 @@ visible area changes with the window size and chosen background height. It is st
 
 ## Style Settings
 
-Open **Settings → Style Settings → Lanternwood**. There are **11 controls in
+Open **Settings → Style Settings → Lanternwood**. There are **12 controls in
 two groups**. All option labels and descriptions are in English, regardless of
 Obsidian's interface language. Changes apply immediately.
 
@@ -118,19 +118,18 @@ Light and dark modes use the same control values, with different artwork.
 
 | Control | Default | Available values | What it does |
 | --- | --- | --- | --- |
-| **Pixel font** | Pixelify Sans | Pixelify Sans / Silkscreen / Jersey 15 / VT323 / Tiny5 | Selects the font everywhere the theme uses pixel typography, including tabs and properties. Applies to paragraphs when pixel note text is enabled. |
+| **Pixel font** | Pixelify Sans | Pixelify Sans / Silkscreen | Selects the font everywhere the theme uses pixel typography, including tabs and properties. Applies to paragraphs when pixel note text is enabled. |
+| **Use Obsidian fonts everywhere** | Off | On / Off | Disables pixel typography across the whole theme, including tabs and properties. Uses Text font, Interface font and Monospace font from Settings → Appearance. Overrides the other pixel font controls. |
 | **Use reading font for headings** | Off | On / Off | Replaces the pixel heading font with the reading font. Applies to note headings, the inline title and callout titles. Leave off for pixel headings. |
 | **Use regular interface font for navigation** | Off | On / Off | Uses your regular interface font for the file explorer, outline, view-header title, settings labels, buttons and dropdowns. Leave off for pixel navigation. |
 | **Use pixel font for note text** | Off | On / Off | Uses the selected pixel font for note text in editing and reading views, with a 19 px base size. When off, paragraphs use your Obsidian reading font. |
 | **Reading width** | 760 px | 520–1000 px, in steps of 20 | Sets the target readable line width. Requires Obsidian's **Settings → Editor → Readable line length** to be enabled; the available pane width still limits it. |
 | **Use native Obsidian icons** | Off | On / Off | Restores native icons in place of the theme's 16 custom pixel glyph designs and their aliases. Icons outside that custom set already retain their native appearance. |
 
-The font switches have specific scopes: tabs, the title bar, status bar, modal
-titles and frontmatter properties retain their pixel styling. Property names
-have no decorative border. The native-icon switch changes glyphs, independently
-of fonts and scenery.
-
-For your configured reading font throughout a note, turn **Use reading font for headings** on and **Use pixel font for note text** off.
+**Use Obsidian fonts everywhere** takes precedence over all other typography
+controls. Turn it off to resume your saved pixel font selection. The narrower
+heading and navigation switches remain available for mixing pixel and regular
+fonts. Property names keep their borderless styling with either font mode.
 
 ### Settings provided by Obsidian
 
@@ -138,7 +137,7 @@ The **light/dark color scheme**, your **text font**, **interface font**,
 **monospace font** and regular **font size** are configured in Obsidian's
 **Appearance** settings. Lanternwood uses those preferences where it does not
 explicitly apply pixel typography. The pixel-note-text option sets its own
-19 px base size. **Readable line length** is an Obsidian Editor setting;
+19 px base size unless **Use Obsidian fonts everywhere** is on. **Readable line length** is an Obsidian Editor setting;
 Lanternwood's width slider works with it.
 
 There is no separate day/night switch, animation control or independent sidebar
@@ -146,42 +145,56 @@ forest toggle: the landscape follows the color scheme and spans the workspace.
 
 ## Typography
 
-Choose **Settings → Style Settings → Lanternwood → Typography and reading → Pixel font**. All five choices are embedded and work offline, with no font installation:
+**Font update in 0.4.0:** Lanternwood now includes only **Pixelify Sans** and
+**Silkscreen**. The other experimental fonts have been removed to keep the
+selection focused. If you previously selected a removed font, choose one of
+the two remaining options; until then, the theme falls back to Pixelify Sans.
+
+We recommend trying both with your own notes. Pixel typography is optional:
+if neither feels comfortable for reading, disable it and use any font available
+in Obsidian's standard Appearance settings instead.
+
+### Try the two pixel fonts
+
+Open **Settings → Style Settings → Lanternwood → Typography and reading**.
+Leave **Use Obsidian fonts everywhere** off and choose **Pixel font**:
 
 | Font | Character and suggested use |
 | --- | --- |
 | **Pixelify Sans** (default) | The original Lanternwood look; variable weights 400–700. |
-| **Silkscreen** | Bold arcade character and uppercase-shaped letters. Includes regular and bold. Try it in titles and navigation, or enable pixel note text for the full look. |
-| **Jersey 15** | Chunky stepped lettering with distinct lowercase forms; a bolder alternative for headings and navigation. |
-| **VT323** | Narrow retro-terminal lettering, visually smaller at the same font size. |
-| **Tiny5** | A compact five-pixel design with a strong game-like character. Best tried in headings and short labels before long notes. |
+| **Silkscreen** | Bold arcade character and uppercase-shaped letters. Includes regular and bold. Try it in titles and navigation before using it for longer notes. |
 
 The selection applies to pixel headings, navigation, tabs, title/status bars,
-modal titles and frontmatter properties. To use it in paragraphs too, enable
-**Use pixel font for note text**. That option still uses a 19 px base size.
-The existing reading-font and interface-font switches take precedence in their
-respective areas; code retains your monospace font.
+modal titles and properties. Enable **Use pixel font for note text** to apply
+it to paragraphs at a 19 px base size too. The separate heading and navigation
+switches let you keep your reading or interface font in those areas.
 
-**Prefer a font installed on your system?** Turn **Use pixel font for note text**
-off, turn **Use reading font for headings** and **Use regular interface font for
-navigation** on, then choose **Text font**, **Interface font** and **Monospace font**
-in **Settings → Appearance**. Tabs, title/status bars, modal titles and properties
-continue using the pixel font selected above.
+### Use your own fonts throughout the theme
 
-The embedded WOFF2 files are compact Latin subsets, including accented Spanish
-letters, Latin Extended characters, combining accents, punctuation, currency and
-arrows where supported by the original font. Other scripts use system fallbacks;
-Font families are renamed internally
-with a Lanternwood prefix; the selector shows the original font names.
+1. In **Style Settings → Lanternwood → Typography and reading**, turn
+   **Use Obsidian fonts everywhere** **on**.
+2. Open **Settings → Appearance** and choose **Text font** for note text and
+   headings, **Interface font** for navigation, tabs, controls and properties,
+   and **Monospace font** for code.
+3. Adjust the regular **Font size** setting for note text if needed.
 
-All five fonts use the **SIL Open Font License 1.1**, separately from the theme's
-MIT license. Original font files and notices are retained; see
-[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Font copyright notices and licenses
-are also embedded in the CSS. Sources: [Pixelify Sans](https://github.com/eifetx/Pixelify-Sans),
-[Silkscreen](https://github.com/googlefonts/silkscreen),
-[Jersey 15](https://github.com/scfried/soft-type-jersey),
-[VT323](https://github.com/google/fonts/tree/main/ofl/vt323),
-[Tiny5](https://github.com/google/fonts/tree/main/ofl/tiny5).
+This single switch disables pixel typography across the theme, even if
+**Use pixel font for note text** is still enabled. It preserves your other
+choices, so switching it off restores your pixel setup. The forest, colors,
+layout and icon preferences stay independent of the font choice.
+
+Both bundled fonts work offline without installation. Their compact WOFF2
+subsets include Latin and Latin Extended characters, Spanish accents and ñ,
+combining accents, punctuation, currency and arrows where supported by the
+originals. Other scripts use system fallbacks. Internal family names use a
+Lanternwood prefix; the selector displays the original font names.
+
+Both use the **SIL Open Font License 1.1**, separately from the theme's MIT
+license. Sources and notices are retained; see
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Copyright notices and the OFL
+terms are also embedded in the CSS. Sources:
+[Pixelify Sans](https://github.com/eifetx/Pixelify-Sans) and
+[Silkscreen](https://github.com/googlefonts/silkscreen).
 
 ## Markdown
 
@@ -236,7 +249,7 @@ You may use, copy, modify and distribute the theme, including for commercial
 purposes, provided you retain the copyright and license notice. The theme is
 provided "as is", without warranty. See the full license for its terms.
 
-The five bundled fonts use the **SIL Open Font License 1.1** separately from
+The two bundled fonts use the **SIL Open Font License 1.1** separately from
 the MIT license. Copyright notices and full licenses are embedded in the CSS
 and included with release ZIPs. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 

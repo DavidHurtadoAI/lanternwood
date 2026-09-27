@@ -8,9 +8,6 @@ original source fonts and their full licenses are retained.
 | --- | --- |
 | Pixelify Sans | [OFL-PixelifySans.txt](assets/OFL-PixelifySans.txt) |
 | Silkscreen | [OFL-silkscreen.txt](assets/fonts/OFL-silkscreen.txt) |
-| Jersey 15 | [OFL-jersey15.txt](assets/fonts/OFL-jersey15.txt) |
-| VT323 | [OFL-vt323.txt](assets/fonts/OFL-vt323.txt) |
-| Tiny5 | [OFL-tiny5.txt](assets/fonts/OFL-tiny5.txt) |
 
 All font licenses are embedded in theme.css and included in release ZIPs.
 The additional font sources come from their respective `ofl` directories in

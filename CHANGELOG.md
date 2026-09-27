@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.0 — 2026-09-27
+
+- Keep only Pixelify Sans and Silkscreen; remove experimental font choices and assets.
+- Add Use Obsidian fonts everywhere to disable pixel typography across the theme, including tabs and properties.
+- Respect Text, Interface and Monospace font preferences even when pixel note text remains enabled.
+- Document the change and recommend trying the two fonts or using personal fonts through Appearance.
+
 ## 0.3.1 — 2026-09-27
 
 - Replace Geist Pixel Square and DotGothic16 with Jersey 15 and Tiny5 in the font selector.

@@ -69,12 +69,11 @@ settings:
         value: lw-font-pixelify
       - label: Silkscreen
         value: lw-font-silkscreen
-      - label: Jersey 15
-        value: lw-font-jersey
-      - label: VT323
-        value: lw-font-vt323
-      - label: Tiny5
-        value: lw-font-tiny
+  - id: lw-system-fonts
+    title: Use Obsidian fonts everywhere
+    description: Disable pixel typography throughout the theme, including tabs and properties. Choose your Text font, Interface font and Monospace font in Settings → Appearance. Overrides the other pixel font options.
+    type: class-toggle
+    default: false
   - id: lw-plain-headings
     title: Use reading font for headings
     description: Replace pixel headings with your reading font. Note text is controlled separately by the pixel note text option.
@@ -467,8 +466,8 @@ body {
   box-shadow: inset 2px 0 var(--lw-gold);
 }
 
-.lw-pixel-text .markdown-source-view,
-.lw-pixel-text .markdown-preview-view {
+.lw-pixel-text:where(:not(.lw-system-fonts)) .markdown-source-view,
+.lw-pixel-text:where(:not(.lw-system-fonts)) .markdown-preview-view {
   --font-text: var(--lw-pixel-font);
 
   font-family: var(--lw-pixel-font);
@@ -479,16 +478,10 @@ body.lw-font-silkscreen {
   --lw-pixel-font: "Lanternwood Silk", monospace;
 }
 
-body.lw-font-jersey {
-  --lw-pixel-font: "Lanternwood Jersey", monospace;
-}
-
-body.lw-font-vt323 {
-  --lw-pixel-font: "Lanternwood Terminal", monospace;
-}
-
-body.lw-font-tiny {
-  --lw-pixel-font: "Lanternwood Tiny", monospace;
+body.lw-system-fonts {
+  --font-interface-theme: "Segoe UI", system-ui, sans-serif;
+  --lw-pixel-font: var(--font-interface);
+  --lw-heading-font: var(--font-text);
 }
 
 .lw-plain-headings {

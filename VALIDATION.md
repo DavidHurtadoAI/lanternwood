@@ -1,4 +1,13 @@
-# Validation — Lanternwood 0.3.1
+# Validation — Lanternwood 0.4.0
+
+## 0.4.0 verification
+
+- Actual Style Settings dropdown exposes and loads Pixelify Sans and Silkscreen.
+- Real global toggle tested with distinct text/interface/monospace CSS variables (Georgia, Arial and monospace).
+- Note headings and paragraphs resolve to the text font; tabs, modal titles, status and properties resolve to the interface font; code retains the monospace font.
+- Global override wins with pixel note text still enabled and both narrower overrides disabled.
+- Existing font preferences restored after the tests.
+- Build, Stylelint and embedded-font/landscape packaging checks pass under the 1 MB budget.
 
 ## 0.3.1 verification
 
