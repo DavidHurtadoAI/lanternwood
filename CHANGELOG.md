@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.1 — 2026-09-27
+
+- Remove the fixed 19 px note size when pixel typography is enabled.
+- Pixelify Sans and Silkscreen now follow the standard Appearance font size in editing and reading views.
+- Update the setting description and typography documentation.
+
 ## 0.4.0 — 2026-09-27
 
 - Keep only Pixelify Sans and Silkscreen; remove experimental font choices and assets.

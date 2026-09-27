@@ -5,7 +5,7 @@
 A highly customizable pixel-art Obsidian theme with **12 configuration options**
 for landscapes, typography, reading width and icons through Style Settings.
 Warm lanterns, forest greens and stepped details create a quiet place to write.
-Version **0.4.0**. Original theme by David Hurtado.
+Version **0.4.1**. Original theme by David Hurtado.
 
 Inspired by the atmosphere of **Kingdom Two Crowns**, with original scenery and
 no extracted game assets. Choose a simple pixel interface, a chunky classic
@@ -45,7 +45,7 @@ In Obsidian, open **Settings → Appearance → Themes → Manage**, search for
 
 For manual installation:
 
-1. Download [Lanternwood-0.4.0.zip](https://github.com/DavidHurtadoAI/lanternwood/releases/download/0.4.0/Lanternwood-0.4.0.zip) from the release. Extract and copy its `Lanternwood` folder into your vault's
+1. Download [Lanternwood-0.4.1.zip](https://github.com/DavidHurtadoAI/lanternwood/releases/download/0.4.1/Lanternwood-0.4.1.zip) from the release. Extract and copy its `Lanternwood` folder into your vault's
    `.obsidian/themes/` directory. It contains `manifest.json` and `theme.css`.
 2. Select **Lanternwood** under **Settings → Appearance → Themes**.
 3. Install and enable **Style Settings** if you want to customize the theme.
@@ -122,7 +122,7 @@ Light and dark modes use the same control values, with different artwork.
 | **Use Obsidian fonts everywhere** | Off | On / Off | Disables pixel typography across the whole theme, including tabs and properties. Uses Text font, Interface font and Monospace font from Settings → Appearance. Overrides the other pixel font controls. |
 | **Use reading font for headings** | Off | On / Off | Replaces the pixel heading font with the reading font. Applies to note headings, the inline title and callout titles. Leave off for pixel headings. |
 | **Use regular interface font for navigation** | Off | On / Off | Uses your regular interface font for the file explorer, outline, view-header title, settings labels, buttons and dropdowns. Leave off for pixel navigation. |
-| **Use pixel font for note text** | Off | On / Off | Uses the selected pixel font for note text in editing and reading views, with a 19 px base size. When off, paragraphs use your Obsidian reading font. |
+| **Use pixel font for note text** | Off | On / Off | Uses the selected pixel font for note text in editing and reading views, using the font size selected in Settings → Appearance. When off, paragraphs use your Obsidian reading font. |
 | **Reading width** | 760 px | 520–1000 px, in steps of 20 | Sets the target readable line width. Requires Obsidian's **Settings → Editor → Readable line length** to be enabled; the available pane width still limits it. |
 | **Use native Obsidian icons** | Off | On / Off | Restores native icons in place of the theme's 16 custom pixel glyph designs and their aliases. Icons outside that custom set already retain their native appearance. |
 
@@ -136,8 +136,7 @@ fonts. Property names keep their borderless styling with either font mode.
 The **light/dark color scheme**, your **text font**, **interface font**,
 **monospace font** and regular **font size** are configured in Obsidian's
 **Appearance** settings. Lanternwood uses those preferences where it does not
-explicitly apply pixel typography. The pixel-note-text option sets its own
-19 px base size unless **Use Obsidian fonts everywhere** is on. **Readable line length** is an Obsidian Editor setting;
+explicitly apply pixel typography. Both pixel fonts follow the standard **Font size** setting in editing and reading views. **Readable line length** is an Obsidian Editor setting;
 Lanternwood's width slider works with it.
 
 There is no separate day/night switch, animation control or independent sidebar
@@ -166,7 +165,8 @@ Leave **Use Obsidian fonts everywhere** off and choose **Pixel font**:
 
 The selection applies to pixel headings, navigation, tabs, title/status bars,
 modal titles and properties. Enable **Use pixel font for note text** to apply
-it to paragraphs at a 19 px base size too. The separate heading and navigation
+it to paragraphs too. Text size follows **Settings → Appearance → Font size**,
+including when pixel typography is enabled. The separate heading and navigation
 switches let you keep your reading or interface font in those areas.
 
 ### Use your own fonts throughout the theme

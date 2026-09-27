@@ -1,4 +1,4 @@
-/* Lanternwood 0.4.0 | David Hurtado | MIT
+/* Lanternwood 0.4.1 | David Hurtado | MIT
  * Generated from src/theme.css — npm run build. No network dependencies.
  */
 
@@ -227,7 +227,7 @@ settings:
     default: false
   - id: lw-pixel-text
     title: Use pixel font for note text
-    description: Use pixel typography throughout your notes. When disabled, paragraphs use your reading font.
+    description: Use pixel typography throughout your notes. Size follows Settings → Appearance → Font size. When disabled, paragraphs use your reading font.
     type: class-toggle
     default: false
   - id: lw-readable-width
@@ -612,7 +612,6 @@ body {
   --font-text: var(--lw-pixel-font);
 
   font-family: var(--lw-pixel-font);
-  font-size: 19px;
 }
 
 body.lw-font-silkscreen {

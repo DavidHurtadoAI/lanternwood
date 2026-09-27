@@ -1,4 +1,12 @@
-# Validation — Lanternwood 0.4.0
+# Validation — Lanternwood 0.4.1
+
+## 0.4.1 verification
+
+- Changed the native Obsidian font size to 16, 22 and 28 px with each of Pixelify Sans and Silkscreen.
+- All 18 combinations pass across Reading view, Live Preview and Source mode.
+- Verified the computed note text size and selected pixel family in actual views.
+- Used a temporary split of an existing note without modifying note content; restored the original leaf, font size and theme settings.
+- Build, Stylelint and package checks pass; CSS stays below the 1 MB project budget.
 
 ## 0.4.0 verification
 
