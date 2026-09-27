@@ -31,12 +31,15 @@ for (const face of fonts) {
   assert.equal(font.subarray(0, 4).toString(), 'wOF2', 'Valid WOFF2 font');
   assert(css.includes(font.toString('base64')), `${face.name} is embedded`);
   const license = (await read(`assets/fonts/${face.license}`)).toString().replace(/[ \t]+$/gm, '');
-  assert(css.includes(license), `${face.name} license is embedded`);
+  const split = license.indexOf('PREAMBLE');
+  assert(split >= 0);
+  assert(css.includes(license.slice(0, split)), `${face.name} copyright notice is embedded`);
+  assert(css.replace(/\s+/g, ' ').includes(license.slice(split).replace(/\s+/g, ' ').trim()), `${face.name} license terms are embedded`);
 }
 const fontSetting = settings.settings.find(s => s.id === 'lw-font');
 assert.equal(fontSetting.type, 'class-select');
 assert.equal(fontSetting.default, 'lw-font-pixelify');
-assert.deepEqual(fontSetting.options.map(o => o.label), ['Pixelify Sans', 'Silkscreen', 'Geist Pixel Square', 'VT323', 'DotGothic16']);
+assert.deepEqual(fontSetting.options.map(o => o.label), ['Pixelify Sans', 'Silkscreen', 'Jersey 15', 'VT323', 'Tiny5']);
 let dimensions;
 for (const file of ['forest.webp', 'forest-day.webp', 'forest-classic.webp', 'forest-classic-day.webp']) {
   const image = await read(`assets/${file}`);

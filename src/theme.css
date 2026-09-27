@@ -69,12 +69,12 @@ settings:
         value: lw-font-pixelify
       - label: Silkscreen
         value: lw-font-silkscreen
-      - label: Geist Pixel Square
-        value: lw-font-geist
+      - label: Jersey 15
+        value: lw-font-jersey
       - label: VT323
         value: lw-font-vt323
-      - label: DotGothic16
-        value: lw-font-dotgothic
+      - label: Tiny5
+        value: lw-font-tiny
   - id: lw-plain-headings
     title: Use reading font for headings
     description: Replace pixel headings with your reading font. Note text is controlled separately by the pixel note text option.
@@ -479,16 +479,16 @@ body.lw-font-silkscreen {
   --lw-pixel-font: "Lanternwood Silk", monospace;
 }
 
-body.lw-font-geist {
-  --lw-pixel-font: "Lanternwood Square", monospace;
+body.lw-font-jersey {
+  --lw-pixel-font: "Lanternwood Jersey", monospace;
 }
 
 body.lw-font-vt323 {
   --lw-pixel-font: "Lanternwood Terminal", monospace;
 }
 
-body.lw-font-dotgothic {
-  --lw-pixel-font: "Lanternwood Dot", monospace;
+body.lw-font-tiny {
+  --lw-pixel-font: "Lanternwood Tiny", monospace;
 }
 
 .lw-plain-headings {

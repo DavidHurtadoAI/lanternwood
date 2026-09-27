@@ -1,4 +1,12 @@
-# Validation — Lanternwood 0.3.0
+# Validation — Lanternwood 0.3.1
+
+## 0.3.1 verification
+
+- Actual Obsidian dropdown loads Pixelify Sans, Silkscreen, Jersey 15, VT323 and Tiny5; no Style Settings errors.
+- Heading, paragraph and property scopes and regular-font overrides pass.
+- All six bundled faces include Spanish accented letters and opening punctuation.
+- CSS remains below 1 MB. Each copyright notice is retained with one shared copy of identical SIL OFL 1.1 terms.
+- Build, Stylelint and packaging checks pass.
 
 ## 0.3.0 verification
 

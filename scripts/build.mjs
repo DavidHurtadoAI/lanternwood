@@ -8,10 +8,18 @@ const manifest = JSON.parse(await read('manifest.json'));
 const fonts = JSON.parse(await read('assets/fonts/fonts.json'));
 let fontCss = '';
 const licenses = new Set();
+let sharedTerms;
 for (const face of fonts) {
   const font = (await read('assets/fonts/' + face.file)).toString('base64');
   if (!licenses.has(face.license)) {
-    fontCss += '/*\n' + (await read('assets/fonts/' + face.license)).toString().replace(/[ \t]+$/gm, '') + '\n*/\n';
+    const license = (await read('assets/fonts/' + face.license)).toString().replace(/[ \t]+$/gm, '');
+    const split = license.indexOf('PREAMBLE');
+    if (split < 0) throw Error('Unexpected font license format');
+    const terms = license.slice(split).replace(/\s+/g, ' ').trim();
+    if (sharedTerms !== undefined && terms !== sharedTerms) throw Error('Font license terms differ');
+    // Keep every copyright notice; include identical OFL terms once for all fonts.
+    fontCss += '/*\n' + (sharedTerms === undefined ? license : license.slice(0, split) + 'Full SIL OFL 1.1 terms above apply to this font.\n') + '\n*/\n';
+    sharedTerms = terms;
     licenses.add(face.license);
   }
   fontCss += '@font-face {\n  font-family: "' + face.family + '";\n  src: url("data:font/woff2;base64,' + font + '") format("woff2");\n  font-weight: ' + face.weight + ';\n  font-style: normal;\n  font-display: swap;\n}\n';

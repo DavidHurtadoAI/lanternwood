@@ -5,7 +5,7 @@
 A highly customizable pixel-art Obsidian theme with **11 configuration options**
 for landscapes, typography, reading width and icons through Style Settings.
 Warm lanterns, forest greens and stepped details create a quiet place to write.
-Version **0.3.0**. Original theme by David Hurtado.
+Version **0.3.1**. Original theme by David Hurtado.
 
 Inspired by the atmosphere of **Kingdom Two Crowns**, with original scenery and
 no extracted game assets. Choose a simple pixel interface, a chunky classic
@@ -45,14 +45,14 @@ In Obsidian, open **Settings → Appearance → Themes → Manage**, search for
 
 For manual installation:
 
-1. Download [Lanternwood-0.3.0.zip](https://github.com/DavidHurtadoAI/lanternwood/releases/download/0.3.0/Lanternwood-0.3.0.zip) from the release. Extract and copy its `Lanternwood` folder into your vault's
+1. Download [Lanternwood-0.3.1.zip](https://github.com/DavidHurtadoAI/lanternwood/releases/download/0.3.1/Lanternwood-0.3.1.zip) from the release. Extract and copy its `Lanternwood` folder into your vault's
    `.obsidian/themes/` directory. It contains `manifest.json` and `theme.css`.
 2. Select **Lanternwood** under **Settings → Appearance → Themes**.
 3. Install and enable **Style Settings** if you want to customize the theme.
 4. Open **Settings → Style Settings → Lanternwood → Forest → Enable forest**.
 
 Alternatively, download `manifest.json` and `theme.css` from the same release
-and place both in `.obsidian/themes/Lanternwood/`. Version **0.3.0** removes the
+and place both in `.obsidian/themes/Lanternwood/`. Version **0.2.3** removed the
 installation version restriction and no longer requires Obsidian Early Access.
 For manual updates, replace those two files with the files from the newer release.
 
@@ -118,7 +118,7 @@ Light and dark modes use the same control values, with different artwork.
 
 | Control | Default | Available values | What it does |
 | --- | --- | --- | --- |
-| **Pixel font** | Pixelify Sans | Pixelify Sans / Silkscreen / Geist Pixel Square / VT323 / DotGothic16 | Selects the font everywhere the theme uses pixel typography, including tabs and properties. Applies to paragraphs when pixel note text is enabled. |
+| **Pixel font** | Pixelify Sans | Pixelify Sans / Silkscreen / Jersey 15 / VT323 / Tiny5 | Selects the font everywhere the theme uses pixel typography, including tabs and properties. Applies to paragraphs when pixel note text is enabled. |
 | **Use reading font for headings** | Off | On / Off | Replaces the pixel heading font with the reading font. Applies to note headings, the inline title and callout titles. Leave off for pixel headings. |
 | **Use regular interface font for navigation** | Off | On / Off | Uses your regular interface font for the file explorer, outline, view-header title, settings labels, buttons and dropdowns. Leave off for pixel navigation. |
 | **Use pixel font for note text** | Off | On / Off | Uses the selected pixel font for note text in editing and reading views, with a 19 px base size. When off, paragraphs use your Obsidian reading font. |
@@ -152,9 +152,9 @@ Choose **Settings → Style Settings → Lanternwood → Typography and reading 
 | --- | --- |
 | **Pixelify Sans** (default) | The original Lanternwood look; variable weights 400–700. |
 | **Silkscreen** | Bold arcade character and uppercase-shaped letters. Includes regular and bold. Try it in titles and navigation, or enable pixel note text for the full look. |
-| **Geist Pixel Square** | A cleaner pixel grid for the interface and reading. |
+| **Jersey 15** | Chunky stepped lettering with distinct lowercase forms; a bolder alternative for headings and navigation. |
 | **VT323** | Narrow retro-terminal lettering, visually smaller at the same font size. |
-| **DotGothic16** | Fine strokes inspired by a 16×16 bitmap grid. |
+| **Tiny5** | A compact five-pixel design with a strong game-like character. Best tried in headings and short labels before long notes. |
 
 The selection applies to pixel headings, navigation, tabs, title/status bars,
 modal titles and frontmatter properties. To use it in paragraphs too, enable
@@ -171,7 +171,7 @@ continue using the pixel font selected above.
 The embedded WOFF2 files are compact Latin subsets, including accented Spanish
 letters, Latin Extended characters, combining accents, punctuation, currency and
 arrows where supported by the original font. Other scripts use system fallbacks;
-DotGothic16's Japanese glyphs are not bundled. Font families are renamed internally
+Font families are renamed internally
 with a Lanternwood prefix; the selector shows the original font names.
 
 All five fonts use the **SIL Open Font License 1.1**, separately from the theme's
@@ -179,9 +179,9 @@ MIT license. Original font files and notices are retained; see
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Font copyright notices and licenses
 are also embedded in the CSS. Sources: [Pixelify Sans](https://github.com/eifetx/Pixelify-Sans),
 [Silkscreen](https://github.com/googlefonts/silkscreen),
-[Geist Pixel](https://github.com/vercel/geist-font),
+[Jersey 15](https://github.com/scfried/soft-type-jersey),
 [VT323](https://github.com/google/fonts/tree/main/ofl/vt323),
-[DotGothic16](https://github.com/fontworks-fonts/DotGothic16).
+[Tiny5](https://github.com/google/fonts/tree/main/ofl/tiny5).
 
 ## Markdown
 

@@ -13,7 +13,7 @@ root = Path(__file__).resolve().parents[1] / "assets" / "fonts"
 ranges = [(0, 0x24F), (0x300, 0x36F), (0x2000, 0x206F), (0x20A0, 0x20CF), (0x2190, 0x21FF), (0xFFFD, 0xFFFD)]
 unicodes = [c for lo, hi in ranges for c in range(lo, hi + 1)]
 for item in json.loads((root / "fonts.json").read_text()):
-    font = TTFont(root / item["source"])
+    font = TTFont(root / item["source"], recalcTimestamp=False)
     options = subset.Options()
     options.name_IDs = [0, 1, 2, 3, 4, 5, 6, 13, 14, 16, 17]
     options.name_legacy = True

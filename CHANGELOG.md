@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.1 — 2026-09-27
+
+- Replace Geist Pixel Square and DotGothic16 with Jersey 15 and Tiny5 in the font selector.
+- Remove the discarded font files and update the documentation and license notices.
+- Keep Pixelify Sans, Silkscreen and VT323, preserving their existing selections.
+- A previously selected removed font falls back to Pixelify Sans until another font is chosen.
+
 ## 0.3.0 — 2026-09-27
 
 - Add the Pixel font selector with Pixelify Sans, Silkscreen, Geist Pixel Square, VT323 and DotGothic16.
