@@ -5,7 +5,7 @@
 A highly customizable pixel-art Obsidian theme with **12 configuration options**
 for landscapes, typography, reading width and icons through Style Settings.
 Warm lanterns, forest greens and stepped details create a quiet place to write.
-Version **0.4.1**. Original theme by David Hurtado.
+Version **0.4.2**. Original theme by David Hurtado.
 
 Inspired by the atmosphere of **Kingdom Two Crowns**, with original scenery and
 no extracted game assets. Choose a simple pixel interface, a chunky classic
@@ -45,7 +45,7 @@ In Obsidian, open **Settings → Appearance → Themes → Manage**, search for
 
 For manual installation:
 
-1. Download [Lanternwood-0.4.1.zip](https://github.com/DavidHurtadoAI/lanternwood/releases/download/0.4.1/Lanternwood-0.4.1.zip) from the release. Extract and copy its `Lanternwood` folder into your vault's
+1. Download [Lanternwood-0.4.2.zip](https://github.com/DavidHurtadoAI/lanternwood/releases/download/0.4.2/Lanternwood-0.4.2.zip) from the release. Extract and copy its `Lanternwood` folder into your vault's
    `.obsidian/themes/` directory. It contains `manifest.json` and `theme.css`.
 2. Select **Lanternwood** under **Settings → Appearance → Themes**.
 3. Install and enable **Style Settings** if you want to customize the theme.
@@ -266,3 +266,9 @@ and included with release ZIPs. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES
 Published releases are available on [GitHub](https://github.com/DavidHurtadoAI/lanternwood/releases).
 The theme has not been submitted to the Community Themes directory.
 Choose another theme in Appearance to deactivate it.
+
+## Mask compatibility
+
+Pixel icons, checkbox marks and the forest fade include WebKit-prefixed masks for older browser engines. Pixel icon replacement is enabled only when CSS masks are supported; otherwise, the original Obsidian icons remain visible. Without masks, the forest retains its overall transparency but loses the gradient fade. The native icon option remains available in Style Settings.
+
+The browser-feature validator may still flag standard CSS masks against its Obsidian 1.4.5 baseline. The prefixed declarations and feature checks address the fallback behavior; they do not certify every feature of the theme on historical Obsidian versions. The lint configuration allows only the three required WebKit mask properties.

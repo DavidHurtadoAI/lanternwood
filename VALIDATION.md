@@ -1,4 +1,13 @@
-# Validation — Lanternwood 0.4.1
+# Validation — Lanternwood 0.4.2
+
+## 0.4.2 verification
+
+- Build, Stylelint and package checks pass; CSS remains below the 1 MB project budget.
+- Regression assertions require identical prefixed and standard mask declarations and feature guards around all generated pixel icon rules.
+- Headless Edge rendering checks pass for normal masks, a simulated prefixed-only stylesheet, a simulated unsupported-mask stylesheet and the native-icon switch.
+- Pixel icons and forest fade remain active with prefixed-only declarations; original SVG geometry remains visible with a transparent icon background when masks are unsupported or native icons are selected.
+- The unsupported-mask forest retains its configured overall opacity.
+- These fallback simulations are not an actual Obsidian 1.4.5 certification. The remote browser-feature warning may remain for standard mask declarations.
 
 ## 0.4.1 verification
 

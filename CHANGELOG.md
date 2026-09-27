@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.2 — 2026-09-27
+
+- Add WebKit-prefixed masks for pixel icons, checkbox marks and the forest fade.
+- Guard pixel icon replacement with feature detection so native SVG icons remain visible without mask support.
+- Add regression checks for paired mask declarations and guarded icon replacement.
+- Document compatibility fallbacks and the narrowly scoped lint exception.
+
 ## 0.4.1 — 2026-09-27
 
 - Remove the fixed 19 px note size when pixel typography is enabled.

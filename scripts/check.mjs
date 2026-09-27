@@ -60,3 +60,18 @@ assert.equal(art.type, 'class-select');
 assert.equal(art.default, 'lw-art-classic');
 assert.deepEqual(art.options.map(o => o.value), ['lw-art-classic', 'lw-art-detailed']);
 console.log(`PASS: CSS parsed; ${settings.settings.length} valid settings; synchronized ${manifest.version}; font and four ${dimensions.join('×')} landscapes embedded; no remote assets or oversized variables.`);
+
+// Mask fallbacks must remain paired and must never hide native icons unconditionally.
+let maskedIcons = 0;
+tree.walkDecls(/^mask-(image|size|repeat)$/, d => {
+  assert(d.parent.nodes.some(n => n.type === 'decl' && n.prop === '-webkit-' + d.prop && n.value === d.value), 'Missing matching prefixed mask: ' + d.prop);
+});
+tree.walkRules(rule => {
+  if (!rule.selector.includes('svg.lucide-')) return;
+  let parent = rule.parent;
+  while (parent && !(parent.type === 'atrule' && parent.name === 'supports' && parent.params.includes('(-webkit-mask-image:') && parent.params.includes('(mask-image:'))) parent = parent.parent;
+  assert(parent, 'Pixel icon replacement must be guarded by mask support');
+  maskedIcons++;
+});
+assert(maskedIcons > 0);
+console.log('PASS: prefixed masks paired; all pixel icon replacements preserve native fallback.');
