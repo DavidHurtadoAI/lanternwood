@@ -21,7 +21,7 @@ const ev = code => {
 };
 const delay = 'await new Promise(r=>setTimeout(r,250));';
 const manager = "app.plugins.plugins['obsidian-style-settings'].settingsManager";
-const snapshot = () => ev(`const w=document.querySelector('.workspace');const s=getComputedStyle(w);const p=getComputedStyle(w,'::after');const leaf=app.workspace.getMostRecentLeaf();const box=leaf?.containerEl.getBoundingClientRect();return {theme:app.customCss.theme,dark:document.body.classList.contains('theme-dark'),forest:document.body.classList.contains('lw-forest'),padding:parseFloat(s.paddingBottom),sceneHeight:parseFloat(p.height)||0,sceneContent:p.content,imageLength:p.backgroundImage.length,scenePointerEvents:p.pointerEvents,imageRendering:p.imageRendering,workspaceBottom:w.getBoundingClientRect().bottom,leafBottom:box?.bottom,overflow:document.documentElement.scrollWidth>innerWidth+1,font:document.fonts.check('16px "Lanternwood Pixel"'),width:innerWidth,height:innerHeight};`);
+const snapshot = () => ev(`const w=document.querySelector('.workspace');const s=getComputedStyle(w);const p=getComputedStyle(w,'::after');const leaf=app.workspace.getMostRecentLeaf();const box=leaf?.containerEl.getBoundingClientRect();return {theme:app.customCss.theme,dark:document.body.classList.contains('theme-dark'),forest:document.body.classList.contains('lw-forest'),padding:parseFloat(s.paddingBottom),sceneHeight:parseFloat(p.height)||0,sceneContent:p.content,imageLength:p.backgroundImage.length,scenePointerEvents:p.pointerEvents,imageRendering:p.imageRendering,workspaceBottom:w.getBoundingClientRect().bottom,leafBottom:box?.bottom,overflow:document.documentElement.scrollWidth>innerWidth+1,font:document.fonts.check('16px '+getComputedStyle(document.body).getPropertyValue('--lw-pixel-font')),width:innerWidth,height:innerHeight};`);
 const capture = name => run('dev:screenshot', `path=${path.join(root, 'screenshots', name + '.png')}`);
 const cdp = (method, params = {}) => run('dev:cdp', `method=${method}`, `params=${JSON.stringify(params)}`);
 mkdirSync(path.join(root, 'screenshots'), { recursive: true });
@@ -78,7 +78,7 @@ try {
   capture('narrow');
   cdp('Emulation.clearDeviceMetricsOverride');
   ev(`${manager}.setSetting('lanternwood','lw-pixel-text',true);${delay}return true;`);
-  assert(ev("return getComputedStyle(document.querySelector('.markdown-source-view')).fontFamily.includes('Lanternwood Pixel');"));
+  assert(ev("const selected=getComputedStyle(document.body).getPropertyValue('--lw-pixel-font').split(',')[0].trim().replaceAll('\"','');return getComputedStyle(document.querySelector('.markdown-source-view')).fontFamily.includes(selected);"));
   report.pixelText = 'PASS';
   report.settingsErrors = ev("return app.plugins.plugins['obsidian-style-settings'].errorList;");
   assert.deepEqual(report.settingsErrors, []);

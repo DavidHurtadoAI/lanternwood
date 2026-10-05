@@ -38,8 +38,8 @@ for (const face of fonts) {
 }
 const fontSetting = settings.settings.find(s => s.id === 'lw-font');
 assert.equal(fontSetting.type, 'class-select');
-assert.equal(fontSetting.default, 'lw-font-pixelify');
-assert.deepEqual(fontSetting.options.map(o => o.label), ['Pixelify Sans', 'Silkscreen']);
+assert.equal(fontSetting.default, 'lw-font-departure');
+assert.deepEqual(fontSetting.options.map(o => o.label), ['Departure Mono', 'Pixelify Sans', 'Silkscreen']);
 let dimensions;
 for (const file of ['forest.webp', 'forest-day.webp', 'forest-classic.webp', 'forest-classic-day.webp']) {
   const image = await read(`assets/${file}`);

@@ -2,6 +2,7 @@
 
 Keep Latin, Latin Extended, combining accents, punctuation, currency and arrows.
 Rename subset families to respect reserved font names. Originals are retained.
+Fonts marked subset=false keep their original upstream WOFF2 unchanged.
 Normal theme builds use the committed WOFF2 files and require no Python.
 """
 import json
@@ -13,6 +14,9 @@ root = Path(__file__).resolve().parents[1] / "assets" / "fonts"
 ranges = [(0, 0x24F), (0x300, 0x36F), (0x2000, 0x206F), (0x20A0, 0x20CF), (0x2190, 0x21FF), (0xFFFD, 0xFFFD)]
 unicodes = [c for lo, hi in ranges for c in range(lo, hi + 1)]
 for item in json.loads((root / "fonts.json").read_text()):
+    if item.get("subset") is False:
+        print(item["name"], "original WOFF2 retained", (root / item["file"]).stat().st_size)
+        continue
     font = TTFont(root / item["source"], recalcTimestamp=False)
     options = subset.Options()
     options.name_IDs = [0, 1, 2, 3, 4, 5, 6, 13, 14, 16, 17]

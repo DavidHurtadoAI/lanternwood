@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.4 — 2026-10-05
+
+- Add Departure Mono 1.500 as the default pixel font, including without Style Settings.
+- Embed the complete upstream WOFF2 and its SIL OFL 1.1 copyright notice and license for offline use.
+- Preserve Pixelify Sans, Silkscreen, saved font selections and the existing typography overrides.
+
 ## 0.4.3 — 2026-09-27
 
 - Remove all CSS masks and the vendor-prefix lint exception.
