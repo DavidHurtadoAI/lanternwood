@@ -144,10 +144,15 @@ forest toggle: the landscape follows the color scheme and spans the workspace.
 
 ## Typography
 
-**Departure Mono** is the default pixel font, including without Style Settings.
+**New in 0.4.4: Departure Mono** is the default pixel font, including without Style Settings.
 **Pixelify Sans** and **Silkscreen** remain available, and existing saved
 selections are preserved. A previously removed font falls back to Departure Mono
 until you choose another available option.
+
+![Departure Mono in Lanternwood — light mode with pixel note text and forest scenery](screenshots/departure-mono.png)
+
+User-supplied Obsidian screenshot in light mode, with Departure Mono applied to
+navigation, headings and note text.
 
 Try the fonts with your own notes. Pixel typography is optional:
 if none feels comfortable for reading, disable it and use any font available
