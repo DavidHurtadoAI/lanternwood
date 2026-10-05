@@ -9,7 +9,7 @@ const sm = "app.plugins.plugins['obsidian-style-settings'].settingsManager";
 const old = ev(`const active=app.workspace.getMostRecentLeaf();const file=active?.view.file;if(!file)throw Error('Open a Markdown note first');window.__lwSizeQA={active,leaf:null};return {size:app.getBaseFontSize(),file:file.path,settings:['lw-font','lw-pixel-text','lw-system-fonts'].map(k=>({key:k,value:${sm}.getSetting('lanternwood',k)}))};`);
 try {
   ev(`window.__lwSizeQA.leaf=app.workspace.getLeaf('split');await window.__lwSizeQA.leaf.openFile(app.vault.getAbstractFileByPath(${JSON.stringify(old.file)}));${sm}.setSetting('lanternwood','lw-pixel-text',true);${sm}.setSetting('lanternwood','lw-system-fonts',false);return true;`);
-  for (const [choice, family] of [['pixelify','Lanternwood Pixel'],['silkscreen','Lanternwood Silk']]) {
+  for (const [choice, family] of [['departure','Departure Mono'],['pixelify','Lanternwood Pixel'],['silkscreen','Lanternwood Silk']]) {
     ev(`${sm}.setSetting('lanternwood','lw-font','lw-font-${choice}');return true;`);
     for (const [mode, source] of [['preview', false], ['source', false], ['source', true]]) {
       ev(`await window.__lwSizeQA.leaf.setViewState({type:'markdown',state:{file:${JSON.stringify(old.file)},mode:'${mode}',source:${source}}});return true;`);

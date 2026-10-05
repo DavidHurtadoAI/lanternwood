@@ -10,7 +10,7 @@ const keys = ['lw-font', 'lw-plain-headings', 'lw-plain-navigation', 'lw-pixel-t
 const old = ev(`return ${JSON.stringify(keys)}.map(k=>({key:k,value:${sm}.getSetting('lanternwood',k)}));`);
 try {
   ev(`${sm}.setSetting('lanternwood','lw-system-fonts',false);app.setting.open();app.setting.openTabById('obsidian-style-settings');return true;`);
-  for (const [choice, family] of [['pixelify','Lanternwood Pixel'],['silkscreen','Lanternwood Silk']]) {
+  for (const [choice, family] of [['departure','Departure Mono'],['pixelify','Lanternwood Pixel'],['silkscreen','Lanternwood Silk']]) {
     const result = ev(`await new Promise(r=>setTimeout(r,200));const d=app.setting.win.document;for(const id of ['lanternwood','lw-type'])d.querySelector('.style-settings-heading[data-id="'+id+'"].is-collapsed .style-settings-collapse-indicator')?.click();const row=[...d.querySelectorAll('.setting-item')].find(e=>e.querySelector('.setting-item-name')?.textContent==='Pixel font');const select=row?.querySelector('select');if(!select)throw Error('Font selector missing');select.value='lw-font-${choice}';select.dispatchEvent(new app.setting.win.Event('change',{bubbles:true}));await new Promise(r=>setTimeout(r,200));const faces=await document.fonts.load('19px "${family}"','Áéíóúñ¿¡Il1O0');return {selected:document.body.classList.contains('lw-font-${choice}'),family:getComputedStyle(document.body).getPropertyValue('--lw-pixel-font'),loaded:faces.length,errors:app.plugins.plugins['obsidian-style-settings'].errorList};`);
     assert(result.selected);
     assert(result.family.includes(family));

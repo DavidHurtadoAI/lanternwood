@@ -1,5 +1,14 @@
 [
   {
+    "name": "Departure Mono",
+    "family": "Departure Mono",
+    "source": "DepartureMono-Regular.woff2",
+    "file": "DepartureMono-Regular.woff2",
+    "weight": "400",
+    "license": "OFL-DepartureMono.txt",
+    "subset": false
+  },
+  {
     "name": "Pixelify Sans",
     "family": "Lanternwood Pixel",
     "source": "../PixelifySans.ttf",

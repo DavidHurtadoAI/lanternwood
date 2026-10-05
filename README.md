@@ -5,7 +5,7 @@
 A highly customizable pixel-art Obsidian theme with **12 configuration options**
 for landscapes, typography, reading width and icons through Style Settings.
 Warm lanterns, forest greens and stepped details create a quiet place to write.
-Version **0.4.3**. Original theme by David Hurtado.
+Version **0.4.4**. Original theme by David Hurtado.
 
 Inspired by the atmosphere of **Kingdom Two Crowns**, with original scenery and
 no extracted game assets. Choose a simple pixel interface, a chunky classic
@@ -45,7 +45,7 @@ In Obsidian, open **Settings → Appearance → Themes → Manage**, search for
 
 For manual installation:
 
-1. Download [Lanternwood-0.4.3.zip](https://github.com/DavidHurtadoAI/lanternwood/releases/download/0.4.3/Lanternwood-0.4.3.zip) from the release. Extract and copy its `Lanternwood` folder into your vault's
+1. Download [Lanternwood-0.4.4.zip](https://github.com/DavidHurtadoAI/lanternwood/releases/download/0.4.4/Lanternwood-0.4.4.zip) from the release. Extract and copy its `Lanternwood` folder into your vault's
    `.obsidian/themes/` directory. It contains `manifest.json` and `theme.css`.
 2. Select **Lanternwood** under **Settings → Appearance → Themes**.
 3. Install and enable **Style Settings** if you want to customize the theme.
@@ -118,7 +118,7 @@ Light and dark modes use the same control values, with different artwork.
 
 | Control | Default | Available values | What it does |
 | --- | --- | --- | --- |
-| **Pixel font** | Pixelify Sans | Pixelify Sans / Silkscreen | Selects the font everywhere the theme uses pixel typography, including tabs and properties. Applies to paragraphs when pixel note text is enabled. |
+| **Pixel font** | Departure Mono | Departure Mono / Pixelify Sans / Silkscreen | Selects the font everywhere the theme uses pixel typography, including tabs and properties. Applies to paragraphs when pixel note text is enabled. |
 | **Use Obsidian fonts everywhere** | Off | On / Off | Disables pixel typography across the whole theme, including tabs and properties. Uses Text font, Interface font and Monospace font from Settings → Appearance. Overrides the other pixel font controls. |
 | **Use reading font for headings** | Off | On / Off | Replaces the pixel heading font with the reading font. Applies to note headings, the inline title and callout titles. Leave off for pixel headings. |
 | **Use regular interface font for navigation** | Off | On / Off | Uses your regular interface font for the file explorer, outline, view-header title, settings labels, buttons and dropdowns. Leave off for pixel navigation. |
@@ -136,7 +136,7 @@ fonts. Property names keep their borderless styling with either font mode.
 The **light/dark color scheme**, your **text font**, **interface font**,
 **monospace font** and regular **font size** are configured in Obsidian's
 **Appearance** settings. Lanternwood uses those preferences where it does not
-explicitly apply pixel typography. Both pixel fonts follow the standard **Font size** setting in editing and reading views. **Readable line length** is an Obsidian Editor setting;
+explicitly apply pixel typography. All three pixel fonts follow the standard **Font size** setting in editing and reading views. **Readable line length** is an Obsidian Editor setting;
 Lanternwood's width slider works with it.
 
 There is no separate day/night switch, animation control or independent sidebar
@@ -144,23 +144,24 @@ forest toggle: the landscape follows the color scheme and spans the workspace.
 
 ## Typography
 
-**Font update in 0.4.0:** Lanternwood now includes only **Pixelify Sans** and
-**Silkscreen**. The other experimental fonts have been removed to keep the
-selection focused. If you previously selected a removed font, choose one of
-the two remaining options; until then, the theme falls back to Pixelify Sans.
+**Departure Mono** is the default pixel font, including without Style Settings.
+**Pixelify Sans** and **Silkscreen** remain available, and existing saved
+selections are preserved. A previously removed font falls back to Departure Mono
+until you choose another available option.
 
-We recommend trying both with your own notes. Pixel typography is optional:
-if neither feels comfortable for reading, disable it and use any font available
+Try the fonts with your own notes. Pixel typography is optional:
+if none feels comfortable for reading, disable it and use any font available
 in Obsidian's standard Appearance settings instead.
 
-### Try the two pixel fonts
+### Try the three pixel fonts
 
 Open **Settings → Style Settings → Lanternwood → Typography and reading**.
 Leave **Use Obsidian fonts everywhere** off and choose **Pixel font**:
 
 | Font | Character and suggested use |
 | --- | --- |
-| **Pixelify Sans** (default) | The original Lanternwood look; variable weights 400–700. |
+| **Departure Mono** (default) | Monospaced pixel typeface by Helena Zhang. Complete version 1.500, with regular weight and Latin, Greek, Cyrillic and box-drawing glyphs. |
+| **Pixelify Sans** | The original Lanternwood look; variable weights 400–700. |
 | **Silkscreen** | Bold arcade character and uppercase-shaped letters. Includes regular and bold. Try it in titles and navigation before using it for longer notes. |
 
 The selection applies to pixel headings, navigation, tabs, title/status bars,
@@ -183,16 +184,21 @@ This single switch disables pixel typography across the theme, even if
 choices, so switching it off restores your pixel setup. The forest, colors,
 layout and icon preferences stay independent of the font choice.
 
-Both bundled fonts work offline without installation. Their compact WOFF2
-subsets include Latin and Latin Extended characters, Spanish accents and ñ,
+All three bundled fonts work offline without installation. Departure Mono uses
+the complete, unmodified upstream WOFF2; its author recommends multiples of
+11 px for pixel-perfect rendering. Font sizes remain freely adjustable.
+Pixelify Sans and Silkscreen use compact WOFF2 subsets with Latin and Latin
+Extended characters, Spanish accents and ñ,
 combining accents, punctuation, currency and arrows where supported by the
-originals. Other scripts use system fallbacks. Internal family names use a
-Lanternwood prefix; the selector displays the original font names.
+originals. Unsupported characters use system fallbacks. The two subset families
+use a Lanternwood prefix; Departure Mono retains its original family name.
+The selector displays the original font names.
 
-Both use the **SIL Open Font License 1.1**, separately from the theme's MIT
+All three use the **SIL Open Font License 1.1**, separately from the theme's MIT
 license. Sources and notices are retained; see
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Copyright notices and the OFL
 terms are also embedded in the CSS. Sources:
+[Departure Mono](https://github.com/rektdeckard/departure-mono),
 [Pixelify Sans](https://github.com/eifetx/Pixelify-Sans) and
 [Silkscreen](https://github.com/googlefonts/silkscreen).
 

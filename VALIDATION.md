@@ -1,4 +1,15 @@
-# Validation — Lanternwood 0.4.3
+# Validation — Lanternwood
+
+## 0.4.4 verification — Departure Mono (2026-10-05)
+
+- Official Departure Mono 1.500 WOFF2 is embedded unchanged, with its copyright notice and SIL OFL 1.1 terms in the generated CSS. Original SHA-256: `5b4fed1daa90708aa9c6ee1190abca9dc22164a1c1def0020386e46b61038cfb`.
+- Font metadata confirms 1,186 glyphs, the original Departure Mono family and coverage for Spanish accents, Greek, Cyrillic and box-drawing characters.
+- Headless Edge with native Obsidian CSS and offline networking loads all three fonts in light/dark fixtures. The default works without a Style Settings class; Pixelify Sans and Silkscreen still resolve to their respective families.
+- Computed heading, tab, property, modal-title and status fonts match each selected family. Departure Mono retains monospaced glyph widths and follows note sizes 16/22/28 px with pixel note text enabled. The global Obsidian font override still works.
+- Visually inspected the dark/light fixtures. These are browser fixtures, not captures of a running Obsidian window.
+- Actual Obsidian verifies Departure Mono as the fresh-selection default, all three choices through the real Style Settings dropdown, embedded-font loading and zero Style Settings errors. Heading/property scopes, reading-font overrides and the global Obsidian-font toggle pass.
+- All 27 combinations of three fonts, Reading/Live Preview/Source views and native note sizes 16/22/28 px pass in actual Obsidian. Original theme, font preferences, note size and active leaf are restored after verification.
+- Build, standard Stylelint, Chromium 114 compatibility lint and embedded-asset/license checks pass. CSS remains below the 1,000,000-byte project budget.
 
 ## 0.4.3 verification
 

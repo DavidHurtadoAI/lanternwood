@@ -63,8 +63,10 @@ settings:
     description: Choose the pixel typeface for the interface, headings and properties. Also applies to note text when its pixel font option is enabled.
     type: class-select
     allowEmpty: false
-    default: lw-font-pixelify
+    default: lw-font-departure
     options:
+      - label: Departure Mono
+        value: lw-font-departure
       - label: Pixelify Sans
         value: lw-font-pixelify
       - label: Silkscreen
@@ -105,7 +107,7 @@ settings:
 */
 
 body {
-  --lw-pixel-font: "Lanternwood Pixel", monospace;
+  --lw-pixel-font: "Departure Mono", monospace;
   --lw-heading-font: var(--lw-pixel-font);
   --lw-forest-height: 360px;
   --lw-forest-opacity: 0.4;
@@ -471,6 +473,10 @@ body {
   --font-text: var(--lw-pixel-font);
 
   font-family: var(--lw-pixel-font);
+}
+
+body.lw-font-pixelify {
+  --lw-pixel-font: "Lanternwood Pixel", monospace;
 }
 
 body.lw-font-silkscreen {
